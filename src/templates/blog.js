@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import ProductList from '../components/ProductList'
 import PostList from '../components/PostList'
 import Pagination from '../components/Pagination'
 
@@ -9,9 +10,11 @@ export default class IndexPage extends React.Component {
   render() {
     const { data, pageContext } = this.props
     const { edges: posts } = data.allWordpressPost
+    const { edges: products } = data.allWcProducts
 
     return (
       <Layout>
+        <ProductList products={products} title="Latest products" />
         <PostList posts={posts} title="Latest posts" />
         <Pagination pageContext={pageContext} pathPrefix="/" />
       </Layout>
@@ -41,6 +44,19 @@ export const pageQuery = graphql`
       edges {
         node {
           ...PostListFields
+        }
+      }
+    }
+    allWcProducts {
+      edges {
+        node {
+          id
+          wordpress_id
+          name
+          slug
+          categories {
+            wordpress_id
+          }
         }
       }
     }
