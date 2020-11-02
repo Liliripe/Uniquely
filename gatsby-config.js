@@ -8,31 +8,31 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        // The base url to your WP site.
-        baseUrl: 'wpdemo.gatsbycentral.com',
-        // WP.com sites set to true, WP.org set to false
+        baseUrl: 'madebyrossi.com/client/uniquely',
         hostingWPCOM: false,
-        // The protocol. This can be http or https.
         protocol: 'https',
-        // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: false,
         auth: {},
-        // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
+        excludedRoutes: [
+          "**/wp/v2/users/me",
+          "**/wp/v2/block-types",
+          "**/wp/v2/settings",
+          "**/wp/v2/themes",
+          "**/wp/v2/plugins",
+          "**/wp/v2/block-directory/search",
+        ],
       },
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      // Removes unused css rules
       resolve:'gatsby-plugin-purgecss',
       options: {
-        // Activates purging in gatsby develop
         develop: true,
-        // Purge only the main css file
         purgeOnly: ['/all.sass'],
       },
-    }, // must be after other CSS plugins
-    'gatsby-plugin-netlify', // make sure to keep it last in the array
+    },
+    'gatsby-plugin-netlify',
   ],
 }
