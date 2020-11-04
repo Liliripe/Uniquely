@@ -1,10 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + WordPress Starter',
+    title: 'Uniquely',
   },
   plugins: [
+    `gatsby-plugin-layout`,
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     {
       resolve: 'gatsby-source-wordpress',
       options: {
@@ -217,13 +225,16 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        develop: true,
-        purgeOnly: ['/all.sass'],
-      },
-    },
+    `gatsby-transformer-remark`,
     'gatsby-plugin-netlify',
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `mulish\:300,400,400i,700,800`
+        ],
+        display: 'swap'
+      }
+    },
   ],
 }

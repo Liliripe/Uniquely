@@ -36,7 +36,7 @@ IndexPage.propTypes = {
   title: PropTypes.string,
 }
 
-export const pageQuery = graphql`
+export const productListQuery = graphql`
   fragment PostListFields on wordpress__POST {
     id
     title

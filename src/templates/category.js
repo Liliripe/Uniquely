@@ -1,8 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostList from '../components/PostList'
+import PostList from '../components/Post/PostList'
 
 const Category = props => {
   const { data, pageContext } = props
@@ -14,10 +13,10 @@ const Category = props => {
   } in the “${category}” category`
 
   return (
-    <Layout>
+    <>
       <Helmet title={`${category} | ${siteTitle}`} />
       <PostList posts={posts} title={title} />
-    </Layout>
+    </>
   )
 }
 

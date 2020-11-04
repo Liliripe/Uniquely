@@ -1,8 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostList from '../components/PostList'
+import PostList from '../components/Post/PostList'
 
 const Author = props => {
   const { data } = props
@@ -19,10 +18,10 @@ const Author = props => {
   }))
 
   return (
-    <Layout>
+    <>
       <Helmet title={`${name} | ${siteTitle}`} />
       <PostList posts={posts} title={title} />
-    </Layout>
+    </>
   )
 }
 

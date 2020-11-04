@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
 
 export const BlogPostTemplate = ({
   content,
@@ -69,7 +68,7 @@ const BlogPost = ({ data }) => {
   const { wordpressPost: post } = data
 
   return (
-    <Layout>
+    <>
       <Helmet title={`${post.title} | Blog`} />
       <BlogPostTemplate
         content={post.content}
@@ -79,7 +78,7 @@ const BlogPost = ({ data }) => {
         date={post.date}
         author={post.author}
       />
-    </Layout>
+    </>
   )
 }
 

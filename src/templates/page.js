@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 
 export const PageTemplate = ({ title, content }) => {
   return (
@@ -34,9 +33,9 @@ const Page = ({ data }) => {
   const { wordpressPage: page } = data
 
   return (
-    <Layout>
+    <>
       <PageTemplate title={page.title} content={page.content} />
-    </Layout>
+    </>
   )
 }
 
