@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import Headroom from 'react-headroom'
 
-export const StyledHeader = styled(Headroom)`
+export const StyledHeader = styled.div`
     width: 100%;
+    margin-bottom: 7px;
 `
 export const StyledTopbar = styled.div`
     width: 100%;
@@ -39,4 +39,8 @@ export const SocialLinks = styled.div`
     a {
         padding-left: 14px;
     }
+`
+export const StyledSVG = styled.svg `
+    max-width: 180px;
+    padding: 30px 0 20px;
 `

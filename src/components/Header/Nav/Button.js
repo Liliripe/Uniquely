@@ -1,11 +1,12 @@
 import React from 'react'
 import { bool, func } from 'prop-types'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
+import { StyledButton } from './style'
 
 const Button = ({ open, setOpen }) => {
     return (
-        <div open={open} onClick={() => setOpen(!open)}>
-            button
-        </div>
+      <StyledButton icon={faBars} open={open} onClick={() => setOpen(!open)} />
     )
 }
 

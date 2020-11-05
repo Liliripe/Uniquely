@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import Header from '../components/Header'
+import Carousel from '../components/Carousel'
 
 export default class IndexPage extends React.Component {
   render() {
     return (
       <>
         <Header />
+        <Carousel type="hero" limit="5" />
         <div style={{height: '2000px'}}>&nbsp;</div>
       </>
     )

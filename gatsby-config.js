@@ -6,6 +6,7 @@ module.exports = {
     `gatsby-plugin-layout`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -203,7 +204,9 @@ module.exports = {
           "**/wc/v3/data/countries",
           "**/wc/v3/data/currencies",
           "**/wc/v3/data/currencies/current",
-          "**/wccom-site/v1/installer"
+          "**/wccom-site/v1/installer",
+          "**/wc-analytics/admin/notes/update",
+          "**/wc-admin/onboarding/tasks/status"
         ],
       },
     },

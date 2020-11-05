@@ -54,8 +54,12 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     transition: all ease-in-out 0.2s;
+    color: ${props => props.theme.colors.black};
+
     :hover {
+      color: ${props => props.theme.colors.black};
       text-decoration: none;
+      opacity: 0.7;
     }
   }
 
@@ -111,27 +115,46 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  // React Headroom
-  .headroom {
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+  // Slick Slider
+  .slick-arrow {
+      position: absolute;
+      z-index: 10;
+      height: 5%;
+      top: 47.5%;
+      background-color: ${props => props.theme.colors.white};
+      transition: padding ease-in-out 0.15s;
+
+      ::before {
+        display: none;
+      }
+
+      :hover {
+        background-color: ${props => props.theme.colors.white};
+      }
+
+      div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
   }
-  .headroom--unfixed {
-    position: relative;
-    transform: translateY(0);
+  .slick-prev {
+      left: 0;
+      padding: 30px 40px 30px 50px;
+
+      :hover {
+        padding: 30px 50px 30px 40px;
+      }
   }
-  .headroom--scrolled {
-    transition: transform 200ms ease-in-out;
-  }
-  .headroom--unpinned {
-    position: fixed;
-    transform: translateY(-100%);
-  }
-  .headroom--pinned {
-    position: fixed;
-    transform: translateY(0%);
+  .slick-next {
+      right: 0;
+      padding: 30px 70px 30px 20px;
+
+      :hover {
+        padding: 30px 60px 30px 30px;
+      }
   }
 `
 export default GlobalStyle

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { StyledWrapper } from './style'
 
-const Wrapper = ({ children }) => {
+const Wrapper = ({ children, align }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper align={align}>
       {children}
     </StyledWrapper>
   )

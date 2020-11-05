@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-import Wrapper from '../Common/Wrapper'
+import Wrapper from '../Wrapper'
 import { StyledTopbar, StyledInner, Newsletter, SocialLinks } from './style'
 
 const Topbar = () => {
