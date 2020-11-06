@@ -13,8 +13,9 @@ const theme = {
   responsive: {
     full: "1200px",
     large: "992px",
-    medium: "768px",
-    small: "576px",
+    medium: "870px",
+    tablet: "768px",
+    mobile: "576px",
   },
   sizes: {
     maxWidth: "1800px",

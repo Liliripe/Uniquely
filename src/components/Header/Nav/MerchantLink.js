@@ -7,7 +7,7 @@ const MerchantLink = () => {
     return (
         <StyledMerchantLink to="/">
             <StyledUserIcon icon={faUser} />
-            Merchant Signup
+            <span>Merchant Signup</span>
         </StyledMerchantLink>
     )
 }

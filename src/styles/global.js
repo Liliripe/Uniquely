@@ -162,5 +162,10 @@ const GlobalStyle = createGlobalStyle`
         padding: 30px 60px 30px 30px;
       }
   }
+  @media screen and (max-width: ${props => props.theme.responsive.medium}) {
+      .slick-arrow {
+          display: none !important;
+      }
+  }
 `
 export default GlobalStyle

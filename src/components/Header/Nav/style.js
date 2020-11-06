@@ -6,11 +6,6 @@ export const StyledNav = styled.nav`
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    @media screen and (max-width: ${props => props.theme.responsive.medium}) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 `
 export const StyledMenu = styled.ul`
     opacity: ${({ open }) => open ? '1' : '0'};
@@ -22,15 +17,6 @@ export const StyledMenu = styled.ul`
     display: flex;
     flex-direction: row;
     padding-left: 9px;
-
-    @media screen and (max-width: ${props => props.theme.responsive.medium}) {
-        padding-left: 0;
-        flex-direction: column;
-
-        a {
-            padding-left: 0;
-        }
-    }
 `
 export const StyledLink = styled(Link)`
     font-size: 12px;
@@ -57,6 +43,12 @@ export const StyledMerchantLink = styled(Link)`
     text-transform: uppercase;
     letter-spacing: 0.9px;
     font-weight: 500;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        span {
+            display: none;
+        }
+    }
 `
 export const StyledUserIcon = styled(FontAwesomeIcon)`
     margin-right: 15px;
