@@ -115,6 +115,12 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  // Fixed Header
+  .header-active {
+      transition: all ease-in-out 0.3s;
+      top: 0 !important;
+  }
+
   // Slick Slider
   .slick-arrow {
       position: absolute;

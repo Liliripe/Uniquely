@@ -62,3 +62,8 @@ export const StyledUserIcon = styled(FontAwesomeIcon)`
     margin-right: 15px;
     font-size: 14px;
 `
+export const StyledSVG = styled.svg `
+    max-width: 150px;
+    width: 150px;
+    margin-right: 20px;
+`

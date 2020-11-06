@@ -9,13 +9,13 @@ import { StyledHeader } from './style'
 const Header = () => {
   return (
     <>
+      <ScrollHeader />
+
       <StyledHeader>
         <Topbar />
         <Logo />
-        <Nav />
+        <Nav search />
       </StyledHeader>
-
-      <ScrollHeader />
     </>
   )
 }

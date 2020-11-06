@@ -1,19 +1,25 @@
 import React, { useState } from 'react'
 
 import Wrapper from '../../Wrapper'
+import Logo from './Logo'
 import Search from './Search'
 import Button from './Button'
 import Menu from './Menu'
 import MerchantLink from './MerchantLink'
 import { StyledNav } from './style'
 
-const Nav = () => {
+const Nav = ({ logo, search }) => {
     const [open, setOpen] = useState(false);
 
     return (
         <Wrapper>
           <StyledNav>
-            <Search />
+            {logo &&
+              <Logo />
+            }
+            {search && 
+              <Search />
+            }
             <Button open={open} setOpen={setOpen} />
             <Menu open={open} setOpen={setOpen} />
             <MerchantLink />

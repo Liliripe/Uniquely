@@ -6,7 +6,6 @@ module.exports = {
     `gatsby-plugin-layout`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
