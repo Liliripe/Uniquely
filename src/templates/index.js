@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
@@ -9,6 +10,7 @@ export default class IndexPage extends React.Component {
   render() {
     return (
       <>
+      <Helmet title="Uniquely.io" />
         <Header />
         <Carousel type="hero" limit="5" />
         <div style={{height: '2000px'}}>&nbsp;</div>

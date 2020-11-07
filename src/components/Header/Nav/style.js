@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export const StyledNav = styled.nav`
     display: flex;
@@ -39,7 +39,7 @@ export const StyledMenu = styled.ul`
         }
     }
 `
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(AniLink)`
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.9px;
@@ -64,7 +64,7 @@ export const StyledSearch = styled(FontAwesomeIcon)`
         cursor: pointer;
     }
 `
-export const StyledMerchantLink = styled(Link)`
+export const StyledMerchantLink = styled(AniLink)`
     margin-left: auto;
     font-size: 11px;
     text-transform: uppercase;

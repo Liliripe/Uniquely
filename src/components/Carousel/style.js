@@ -81,7 +81,7 @@ export const StyledContent = styled.div`
                 margin-bottom: 50px;
             }
         }
-        p {
+        div {
             font-size: 15px;
             font-weight: 500;
             margin-bottom: 50px;

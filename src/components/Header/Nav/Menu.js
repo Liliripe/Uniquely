@@ -37,6 +37,7 @@ const Menu = ({ open, setOpen }) => (
                     return (
                         <li className="menu-item">
                             <StyledLink
+                                fade
                                 className="menu-link active"
                                 to={prop.url}
                                 alt={prop.title}

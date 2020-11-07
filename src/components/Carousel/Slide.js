@@ -15,7 +15,7 @@ const Slide = ({ key, title, slug, excerpt, image }) => {
                     <div>
                         <h5>Featured Destination</h5>
                         <h2>{title}</h2>
-                        <p dangerouslySetInnerHTML={{ __html: excerpt }} />
+                        <div dangerouslySetInnerHTML={{ __html: excerpt }} />
                         <Link to={slug}>
                             <span className="outer">
                                 <span className="inner">View Destination</span>

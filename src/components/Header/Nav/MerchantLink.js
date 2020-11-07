@@ -5,7 +5,7 @@ import { StyledMerchantLink, StyledUserIcon } from './style'
 
 const MerchantLink = () => {
     return (
-        <StyledMerchantLink to="/">
+        <StyledMerchantLink fade className="merchant-link" to="/merchant-signup">
             <StyledUserIcon icon={faUser} />
             <span>Merchant Signup</span>
         </StyledMerchantLink>
