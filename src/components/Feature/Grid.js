@@ -2,7 +2,7 @@ import React from 'react'
 
 import {  } from './style'
 
-const FeatureGrid = () => {
+const FeatureGrid = ({ number }) => {
   return (
     <>
       Feature Grid

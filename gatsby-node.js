@@ -203,6 +203,44 @@ exports.createPages = ({ actions, graphql }) => {
   .then(() => {
     return graphql(`
       {
+        allWordpressWpDestinations {
+          edges {
+            node {
+              id
+              slug
+            }
+          }
+        }
+      }
+    `)
+  })
+  .then(result => {
+    if (result.errors) {
+      result.errors.forEach(e => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const destinationTemplate = path.resolve(`./src/templates/destination.js`)
+
+    const allDestinations = result.data.allWordpressWpDestinations.edges
+    const destinations =
+      process.env.NODE_ENV === 'production'
+        ? getOnlyPublished(allDestinations)
+        : allDestinations
+
+    _.each(destinations, ({ node: destination }) => {
+      createPage({
+        path: `/${destination.slug}/`,
+        component: destinationTemplate,
+        context: {
+          id: destination.id,
+        },
+      })
+    })
+  })
+  .then(() => {
+    return graphql(`
+      {
         allWordpressWpUsers {
           edges {
             node {
