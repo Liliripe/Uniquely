@@ -14,7 +14,7 @@ const Topbar = () => {
           <Newsletter>
             <a href="#" target="blank">
               <FontAwesomeIcon icon={faEnvelope} /> 
-              <span>Newsletter</span>
+              <span>Newsletter test</span>
             </a>
           </Newsletter>
     
