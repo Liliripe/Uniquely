@@ -1,11 +1,17 @@
 import React from 'react'
 
+import Grid from './Grid'
+import Banner from './Banner'
 import {  } from './style'
 
-const Feature = () => {
+const Feature = ({ grid, number }) => {
   return (
     <>
-      Feature 
+      {grid ? (
+        <Grid number />
+      ) : (
+        <Banner />
+      )} 
     </>
   )
 }
