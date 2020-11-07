@@ -5,7 +5,7 @@ import {  } from './style'
 const FeatureGrid = () => {
   return (
     <>
-      Feature Grid
+      Feature Grids
     </>
   )
 }
