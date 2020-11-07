@@ -45,7 +45,7 @@ export const StyledContent = styled.div`
         }
 
         @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-            background: linear-gradient(90deg, rgba(237,237,231,0.85) 80%, transparent 100%);
+            background: linear-gradient(90deg, rgba(237,237,231,0.75) 100%, transparent 100%);
         }
     }
 

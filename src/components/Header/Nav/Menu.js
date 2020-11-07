@@ -1,10 +1,11 @@
 import React from 'react'
-import { bool } from 'prop-types'
+import { bool, func } from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-import { StyledMenu, StyledLink } from './style'
+import { StyledMenu, StyledLink, StyledClose } from './style'
 
-const Menu = ({ open }) => (
+const Menu = ({ open, setOpen }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -34,9 +35,9 @@ const Menu = ({ open }) => (
             data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
                 prop => {
                     return (
-                        <li className="nav-item">
+                        <li className="menu-item">
                             <StyledLink
-                                className="nav-link active"
+                                className="menu-link active"
                                 to={prop.url}
                                 alt={prop.title}
                             >
@@ -46,6 +47,7 @@ const Menu = ({ open }) => (
                     )
                 }
             )}
+            <StyledClose icon={faTimes} open={open} onClick={() => setOpen(!open)} />
         </StyledMenu>
     )}
   />
@@ -53,6 +55,7 @@ const Menu = ({ open }) => (
 
 Menu.propTypes = {
   open: bool.isRequired,
+  setOpen: func.isRequired,
 };
 
 export default Menu

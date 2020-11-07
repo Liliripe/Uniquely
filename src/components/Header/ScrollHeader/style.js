@@ -7,5 +7,5 @@ export const StyledScrollHeader = styled.div`
     right: 0;
     z-index: 9999;
     background-color: #fff;
-    padding: 10px 0;
+    padding: 17px 0 10px;
 `
