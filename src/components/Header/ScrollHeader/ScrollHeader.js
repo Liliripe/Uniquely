@@ -1,7 +1,14 @@
 import React from 'react'
+import { bool, func } from 'prop-types'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-import Nav from '../Nav'
-import { StyledScrollHeader } from './style'
+import Wrapper from '../../Wrapper'
+import Logo from '../Logo'
+import Menu from '../Nav/Menu'
+import Merchant from '../Nav/Merchant'
+import { StyledScrollHeader, StyledWrapper } from './style'
 
 class ScrollHeader extends React.Component {
   componentDidMount() {
@@ -29,10 +36,32 @@ class ScrollHeader extends React.Component {
   render() {
     return (
       <StyledScrollHeader className="scroll-header">
-        <Nav logo />
+        <Container fluid>
+            <Row>
+                <Wrapper>
+                    <StyledWrapper>
+                        <Col md={1}>
+                            <Logo align="left" width="120px" padding="0" />
+                        </Col>
+                        <Col md={6}>
+                            <Menu open={this.props.open} setOpen={this.props.setOpen} />
+                        </Col>
+                        <Col md={4} className="ml-auto">
+                            <Merchant />
+                        </Col>
+                    </StyledWrapper>
+                </Wrapper>
+            </Row>
+        </Container>
       </StyledScrollHeader>
     )
   }
 }
 
+Menu.propTypes = {
+  open: bool.isRequired,
+  setOpen: func.isRequired,
+};
+
 export default ScrollHeader
+

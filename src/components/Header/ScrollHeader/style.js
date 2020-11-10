@@ -7,7 +7,7 @@ export const StyledScrollHeader = styled.div`
     right: 0;
     z-index: 9999;
     background-color: #fff;
-    padding: 17px 0 10px;
+    padding: 15px 0;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
         .merchant-link {
@@ -19,4 +19,8 @@ export const StyledScrollHeader = styled.div`
             }
         }
     }
+`
+export const StyledWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
 `

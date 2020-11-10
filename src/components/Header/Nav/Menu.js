@@ -3,9 +3,10 @@ import { bool, func } from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
+import Button from './Button'
 import { StyledMenu, StyledLink, StyledClose } from './style'
 
-const Menu = ({ open, setOpen }) => (
+const Menu = ({ open, setOpen, width, align }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -25,31 +26,35 @@ const Menu = ({ open, setOpen }) => (
       }
     `}
     render={data => (
-        <StyledMenu open={open}>
-            {data &&
-            data.allWordpressWpApiMenusMenusItems &&
-            data.allWordpressWpApiMenusMenusItems.edges &&
-            data.allWordpressWpApiMenusMenusItems.edges[0] &&
-            data.allWordpressWpApiMenusMenusItems.edges[0].node &&
-            data.allWordpressWpApiMenusMenusItems.edges[0].node.items &&
-            data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
-                prop => {
-                    return (
-                        <li className="menu-item">
-                            <StyledLink
-                                fade
-                                className="menu-link active"
-                                to={prop.url}
-                                alt={prop.title}
-                            >
-                                {prop.title}
-                            </StyledLink>
-                        </li>
-                    )
-                }
-            )}
-            <StyledClose icon={faTimes} open={open} onClick={() => setOpen(!open)} />
-        </StyledMenu>
+        <>
+            <Button open={open} setOpen={setOpen} />
+
+            <StyledMenu md={width} open={open} style={{ justifyContent: align }}>
+                {data &&
+                data.allWordpressWpApiMenusMenusItems &&
+                data.allWordpressWpApiMenusMenusItems.edges &&
+                data.allWordpressWpApiMenusMenusItems.edges[0] &&
+                data.allWordpressWpApiMenusMenusItems.edges[0].node &&
+                data.allWordpressWpApiMenusMenusItems.edges[0].node.items &&
+                data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
+                    prop => {
+                        return (
+                            <li className="menu-item">
+                                <StyledLink
+                                    fade
+                                    className="menu-link active"
+                                    to={prop.url}
+                                    alt={prop.title}
+                                >
+                                    {prop.title}
+                                </StyledLink>
+                            </li>
+                        )
+                    }
+                )}
+                <StyledClose icon={faTimes} open={open} onClick={() => setOpen(!open)} />
+            </StyledMenu>
+        </>
     )}
   />
 )
