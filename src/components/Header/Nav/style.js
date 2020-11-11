@@ -1,37 +1,51 @@
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import Col from 'react-bootstrap/Col'
 
 export const StyledNav = styled.nav`
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-bottom: 7px;
+    width: 100%;
 `
-export const StyledMenu = styled.ul`
-    opacity: ${({ open }) => open ? '1' : '0'};
-    visibility: ${({ open }) => open ? 'visible' : 'hidden'};
-    transition: visibility 0s, opacity 0.2s linear;
+export const SocialLinks = styled.div`
+    font-size: 14px;
+
+    a {
+        padding-right: 14px;
+    }
+`
+export const StyledMerchant = styled(Col)`
+    text-align: right;
+`
+export const StyledMenu = styled(Col)`
     list-style-type: none;
     display: flex;
     flex-direction: row;
     padding-left: 9px;
     
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        opacity: ${({ open }) => open ? '1' : '0'};
+        visibility: ${({ open }) => open ? 'visible' : 'hidden'};
         z-index: ${({ open }) => open ? '99999' : '-99999'};
-        background-color: #fafafa;
+        left: ${({ open }) => open ? '0' : '-100vw'};
+        transition: visibility 0s, opacity 0.1s, left 0.5s ease-in-out;
+        position: fixed;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #fafafa;
     }
 
     .menu-link {
-        padding: 0 0.7rem;
+        padding: 0 1rem;
         display: inline-block;
 
         @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
@@ -40,9 +54,9 @@ export const StyledMenu = styled.ul`
     }
 `
 export const StyledLink = styled(AniLink)`
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.9px;
+    letter-spacing: 2px;
     font-weight: 500;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
@@ -52,37 +66,15 @@ export const StyledLink = styled(AniLink)`
     }
 `
 export const StyledButton = styled(FontAwesomeIcon)`
-    :hover {
-        cursor: pointer;
+    display: none;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        display: inline-block;
     }
-`
-export const StyledSearch = styled(FontAwesomeIcon)`
-    margin-right: 20px;
-    font-size: 14px;
 
     :hover {
         cursor: pointer;
     }
-`
-export const StyledMerchantLink = styled(AniLink)`
-    margin-left: auto;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.9px;
-    font-weight: 500;
-    -webkit-user-select: none;  
-    -moz-user-select: none;    
-    -ms-user-select: none;      
-    user-select: none;
-`
-export const StyledUserIcon = styled(FontAwesomeIcon)`
-    margin-right: 15px;
-    font-size: 14px;
-`
-export const StyledSVG = styled.svg `
-    max-width: 150px;
-    width: 150px;
-    margin-right: 20px;
 `
 export const StyledClose = styled(FontAwesomeIcon)`
     display: none;
@@ -96,4 +88,29 @@ export const StyledClose = styled(FontAwesomeIcon)`
             cursor: pointer;
         }
     }
+`
+export const SocialCol = styled(Col)`
+    padding-left: 0;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        display: none;
+    }
+`
+export const StyledMerchantCol = styled(Col)`
+    text-align: right;
+    padding-right: 0;
+`
+export const StyledMerchantLink = styled(AniLink)`
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+`
+export const StyledUserIcon = styled(FontAwesomeIcon)`
+    margin-right: 15px;
+    font-size: 14px;
 `

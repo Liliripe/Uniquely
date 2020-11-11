@@ -2,9 +2,9 @@ import React from 'react'
 
 import { StyledSVG } from './style'
 
-const Logo = () => {
+const Logo = ({ width, padding }) => {
     return (
-        <StyledSVG viewBox='0 0 270 40'>
+        <StyledSVG style={{ maxWidth: width, padding: padding }} viewBox='0 0 270 40'>
             <g>
                 <path d='M28.83,29.78c-2.64,4.31-8.23,5.72-12.98,5.72c-3.83,0-7.61-0.75-10.65-3.26C1.63,29.25,1.33,26,1.33,21.55V1.79H5.2v19.67
                     c0,3.52,0.18,5.24,1.54,6.86c2.16,2.55,5.94,3.26,9.11,3.26c3.34,0,7.48-0.62,9.46-3.61c0.79-1.19,1.28-2.38,1.28-6.51V1.79h3.87
