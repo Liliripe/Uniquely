@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const StyledTitle = styled.div `
-    padding: 20px 0 40px;
     display: flex;
     flex-direction: column;
 

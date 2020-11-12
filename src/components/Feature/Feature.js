@@ -3,12 +3,11 @@ import { StaticQuery, graphql } from 'gatsby'
 import Row from 'react-bootstrap/Row'
 
 import Wrapper from '../Wrapper'
-import Title from '../Title'
 import Grid from './Grid'
 import Banner from './Banner'
 import { StyledContainer } from './style'
 
-const Feature = ({ grid, title, subtitle, align }) => (
+const Feature = ({ grid }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -59,13 +58,9 @@ const Feature = ({ grid, title, subtitle, align }) => (
     render = { data => (
       <Wrapper>
         <StyledContainer fluid>
-          <Title title={title} subtitle={subtitle} align={align} />
-
           <Row>
               {grid ? (
-                <>
-                  <Grid {...data} />
-                </>
+                <Grid {...data} />
                ) : (
                 <Banner />
               )} 
