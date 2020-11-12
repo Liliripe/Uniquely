@@ -115,6 +115,21 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  // Load-In Overlay
+  .load-wrapper {
+    display: block;
+  }
+  .load-overlay {
+    position: fixed;
+    z-index: 9999999;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0; 
+    bottom: 0;
+    opacity: 1;
+  }
+
   // Fixed Header
   .header-active {
       transition: all ease-in-out 0.3s;
