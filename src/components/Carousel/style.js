@@ -23,7 +23,7 @@ export const StyledContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 140px;
+    padding-left: 170px;
 
     @media screen and (max-width: ${props => props.theme.responsive.medium}) {
         padding: 0;
@@ -37,16 +37,8 @@ export const StyledContent = styled.div`
         right: 0;
         bottom: 0;
         opacity: 1;
-        background: linear-gradient(90deg, rgba(237,237,231,0.85) 20%, transparent 100%);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 100%, transparent 100%);
         z-index: 3;
-
-        @media screen and (max-width: ${props => props.theme.responsive.medium}) {
-            background: linear-gradient(90deg, rgba(237,237,231,0.85) 50%, transparent 100%);
-        }
-
-        @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-            background: linear-gradient(90deg, rgba(237,237,231,0.75) 100%, transparent 100%);
-        }
     }
 
     * {
@@ -68,53 +60,30 @@ export const StyledContent = styled.div`
         }
 
         h5 {
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 2.2px;
-            opacity: 0.8;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
             margin-bottom: 10px;
+            color: ${props => props.theme.colors.white};
         }
         h2 {
+            font-size: 66px;
             margin-bottom: 20px;
+            font-weight: 700;
+            color: ${props => props.theme.colors.white};
 
             @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
                 margin-bottom: 50px;
             }
         }
         div {
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 400;
             margin-bottom: 50px;
+            color: ${props => props.theme.colors.white};
 
             @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
                 display: none;
-            }
-        }
-        a {
-            color: ${props => props.theme.colors.black};
-            transition: all ease-in-out 0.2s;
-
-            :hover {
-                opacity: 1;
-            }
-
-            span.outer {
-                border: 1px solid ${props => props.theme.colors.black};
-                transition: all ease-in-out 0.2s;
-                padding: 15px 2px 18px 3px;
-
-                :hover {
-                    background-color: rgba(255, 255, 255, 0.65);
-                    opacity: 1;
-                }
-            }
-            span.inner {
-                text-transform: uppercase;
-                font-size: 12px;
-                letter-spacing: 2.2px;
-                font-weight: 500;
-                border: 1px solid rgba(0, 0, 0, 0.4);
-                padding: 15px 40px;
             }
         }
     }

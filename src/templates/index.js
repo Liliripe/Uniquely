@@ -3,7 +3,8 @@ import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
 import Carousel from '../components/Carousel'
-import MainFeature from '../components/Feature'
+import Title from '../components/Title'
+import Feature from '../components/Feature'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -12,12 +13,14 @@ export default class IndexPage extends React.Component {
       <Helmet title="Uniquely.io" />
         <Header />
         <Carousel type="hero" limit="5" />
-        <MainFeature 
-          grid 
+        <Title
           title="Popular <em>Featured</em> Content" 
           subtitle="Destinations & Events" 
           align="center"
+          padding="60px 0 10px"
         />
+        <Feature grid />
+        <Feature subtitle="Featured Destination" />
       </>
     )
   }
