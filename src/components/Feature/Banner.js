@@ -4,12 +4,13 @@ import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
 import Col from 'react-bootstrap/Col'
 
+import Button from '../Button'
 import { 
   StyledBanner, 
+  StyledBox,
   StyledSubtitle, 
   StyledTitle, 
-  StyledExcerpt, 
-  StyledButton 
+  StyledExcerpt
 } from './style'
 
 const Banner = ({ subtitle }) => {
@@ -65,24 +66,28 @@ const Banner = ({ subtitle }) => {
               hidden: { opacity: 0 }
           }}
           transition={{ duration: 1.3 }}
+          style={{ width: '100%' }}
         >
           <Col>
             <StyledBanner
               Tag="section"
               fluid={popular.node.featured_media.localFile.childImageSharp.fluid}
             >
-              <StyledSubtitle>
-                {subtitle}
-              </StyledSubtitle>
-              <StyledTitle>
-                {popular.node.title}
-              </StyledTitle>
-              <StyledExcerpt 
-                dangerouslySetInnerHTML={{ __html: popular.node.excerpt }} 
-              />
-              <StyledButton to={popular.node.slug} fade>
-                View Destination
-              </StyledButton>
+              <StyledBox>
+                <StyledSubtitle>
+                  {subtitle}
+                </StyledSubtitle>
+                <StyledTitle>
+                  {popular.node.title}
+                </StyledTitle>
+                <StyledExcerpt 
+                  dangerouslySetInnerHTML={{ __html: popular.node.excerpt }} 
+                />
+                <Button
+                  slug={popular.node.slug}
+                  title="View Destination" 
+                />
+              </StyledBox>
             </StyledBanner>
           </Col>
         </motion.div>

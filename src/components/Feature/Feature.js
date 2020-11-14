@@ -7,7 +7,7 @@ import Grid from './Grid'
 import Banner from './Banner'
 import { StyledContainer } from './style'
 
-const Feature = ({ grid }) => (
+const Feature = ({ grid, subtitle }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -62,7 +62,7 @@ const Feature = ({ grid }) => (
               {grid ? (
                 <Grid {...data} />
                ) : (
-                <Banner />
+                <Banner subtitle={subtitle} />
               )} 
           </Row>
         </StyledContainer>
