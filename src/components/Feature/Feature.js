@@ -11,7 +11,9 @@ const Feature = ({ grid, subtitle }) => (
   <StaticQuery
     query={graphql`
       query {
-        allWordpressWpDestinations {
+        allWordpressWpDestinations(
+          filter: {categories: {elemMatch: {slug: { eq: "featured" }}}}
+        ) {
           edges {
             node {
               title
@@ -32,7 +34,9 @@ const Feature = ({ grid, subtitle }) => (
             }
           }
         }
-        allWordpressPost {
+        allWordpressPost(
+          filter: {categories: {elemMatch: {slug: { eq: "featured" }}}}
+        ) {
           edges {
             node {
               title
