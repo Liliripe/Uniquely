@@ -15,7 +15,7 @@ const Carousel = ({ limit }) => (
     query={graphql`
       query {
         allWordpressWpDestinations(
-          filter: {categories: {elemMatch: {slug: { eq: "featured" }}}}
+          filter: {categories: {elemMatch: {slug: { eq: "carousel" }}}}
         ) {
           edges {
             node {

@@ -16,15 +16,9 @@ import {
 const Banner = ({ subtitle }) => {
   const data = useStaticQuery(graphql`
     query {
-      allWordpressWpDestinations(filter: {
-        categories: {
-          elemMatch: {
-            slug: {
-              eq: "popular"
-            }
-          }
-        }
-      }) {
+      allWordpressWpDestinations(
+          filter: {categories: {elemMatch: {slug: { eq: "popular" }}}}
+        ) {
         edges {
           node {
             title

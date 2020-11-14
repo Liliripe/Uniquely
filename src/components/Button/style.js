@@ -27,7 +27,7 @@ export const StyledButton = styled(AniLink)`
             'transparent'
         };
         transition: all ease-in-out 0.1s;
-        padding: 15px 2px 18px 3px;
+        padding: 15px 4px 18px;
 
         :hover {
             background-color: ${({type}) => 
@@ -40,7 +40,7 @@ export const StyledButton = styled(AniLink)`
     }
     span.inner {
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 11px;
         letter-spacing: 1.5px;
         font-weight: 700;
         border: 1px solid rgba(0, 0, 0, 0.4);
