@@ -128,4 +128,8 @@ export const StyledMerchantLink = styled(AniLink)`
 export const StyledUserIcon = styled(FontAwesomeIcon)`
     margin-right: 15px;
     font-size: 14px;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        margin-right: 0;
+    }
 `
