@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
 
@@ -7,6 +8,49 @@ import Copyright from './Copyright'
 import { StyledFooter } from './style'
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      navQuery: allWordpressWpApiMenusMenusItems(
+        filter: {
+          slug: {
+            eq: "footer-navigation"
+          }
+        }
+      ) {
+          edges {
+              node {
+                  slug
+                  name
+                  items {
+                      title
+                      url
+                      object_slug
+                  }
+              }
+          }
+      }
+      aboutQuery: allWordpressWpApiMenusMenusItems(
+        filter: {
+          slug: {
+            eq: "footer-about-us"
+          }
+        }
+      ) {
+          edges {
+              node {
+                  slug
+                  name
+                  items {
+                      title
+                      url
+                      object_slug
+                  }
+              }
+          }
+      }
+    }
+  `)
+
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
@@ -29,7 +73,7 @@ const Footer = () => {
         style={{ width: '100%' }}
     >
       <StyledFooter>
-        <Grid />
+        <Grid {...data} />
         <Copyright />
       </StyledFooter>
     </motion.div>

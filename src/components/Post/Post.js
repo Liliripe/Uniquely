@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
-import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
 import Wrapper from '../Wrapper'
 import Title from '../Title'
 import Block from './Block'
+import { StyledContainer } from './style'
 
 const Post = ({ type, number, title, subtitle }) => {
   const data = useStaticQuery(graphql`
@@ -64,11 +64,11 @@ const Post = ({ type, number, title, subtitle }) => {
                 padding="50px 0"
             />
 
-            <Container fluid>
+            <StyledContainer fluid>
                 <Row>
                     <Block {...data} />
                 </Row>
-            </Container>
+            </StyledContainer>
         </Wrapper>
     </motion.div>
   )

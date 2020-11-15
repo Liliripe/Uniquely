@@ -2,12 +2,25 @@ import styled from 'styled-components'
 import Col from 'react-bootstrap/Col'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import BackgroundImage from 'gatsby-background-image'
+import Container from 'react-bootstrap/Container'
 
+export const StyledContainer = styled(Container)`
+    padding-right: 0;
+    padding-left: 0;
+`
 export const StyledCol = styled(Col)`
     margin-bottom: 80px;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        min-height: 350px !important;
+    }
 `
 export const StyledImage = styled(BackgroundImage)`
     min-height: 450px;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        min-height: 250px !important;
+    }
 `
 export const StyledLink = styled(AniLink)`
     opacity: 1 !important;
@@ -44,6 +57,10 @@ export const StyledButton = styled.button`
     font-size: 11px;
     text-align: center;
     border: 0;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        width: 98%;
+    }
 `
 export const StyledCategory = styled.p`
     margin: 18px 0 5px;

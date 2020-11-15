@@ -74,6 +74,7 @@ export const StyledContent = styled.div`
 
             @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
                 margin-bottom: 50px;
+                font-size: 50px;
             }
         }
         div {

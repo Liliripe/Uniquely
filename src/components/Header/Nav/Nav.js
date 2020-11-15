@@ -14,7 +14,7 @@ const Nav = ({ open, setOpen }) => {
         <Wrapper>
           	<Container fluid>
                   <Row>
-                        <StyledNav>
+                        <StyledNav open={open} setOpen={setOpen}>
                             <Social width="3" />
                             <Menu width="6" align="center" open={open} setOpen={setOpen} />
                             <Merchant width="3" />

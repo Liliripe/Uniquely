@@ -6,9 +6,17 @@ import BackgroundImage from 'gatsby-background-image'
 export const StyledCol = styled(Col)`
     position: relative;
     min-height: 500px;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        min-height: 350px !important;
+    }
 `
 export const StyledBackground = styled(BackgroundImage)`
     min-height: 400px;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        min-height: 250px !important;
+    }
 `
 export const StyledText = styled.div`
     margin: 15px 0 25px;
@@ -52,4 +60,8 @@ export const StyledButton = styled.button`
     font-size: 11px;
     text-align: center;
     border: 0;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        width: 98%;
+    }
 `

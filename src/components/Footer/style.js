@@ -19,6 +19,11 @@ export const StyledGrid = styled(Row)`
         margin-bottom: 3px;
     }
 `
+export const StyledCol = styled(Col)`
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        margin-bottom: 30px;
+    }
+`
 export const StyledTitle = styled.h3`
     font-weight: 500;
     text-transform: uppercase;
