@@ -12,14 +12,14 @@ export const StyledCol = styled(Col)`
     margin-bottom: 80px;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        min-height: 350px !important;
+        min-height: 250px !important;
     }
 `
 export const StyledImage = styled(BackgroundImage)`
     min-height: 450px;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        min-height: 250px !important;
+        min-height: 150px !important;
     }
 `
 export const StyledLink = styled(AniLink)`

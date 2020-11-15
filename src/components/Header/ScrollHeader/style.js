@@ -12,8 +12,12 @@ export const StyledScrollHeader = styled.div`
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
         .merchant-link {
-            margin-left: 14px;
+            margin: 0;
             padding-top: 2px;
+
+            svg {
+                margin: 0;
+            }
 
             span {
                 display: none;
@@ -26,10 +30,14 @@ export const StyledWrapper = styled.div`
     flex-direction: row;
 `
 export const LogoCol = styled(Col)`
-    margin-left: 30px;
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        margin-left: 30px;
+    }
 `
 export const MenuCol = styled(Col)`
-    position: absolute;
-    left: 20px;
-    margin-top: 2px;
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        position: absolute;
+        left: 20px;
+        margin-top: 1px;
+    }
 `

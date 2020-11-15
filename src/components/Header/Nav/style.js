@@ -54,7 +54,7 @@ export const StyledMenu = styled(Col)`
         align-items: center;
         top: 0;
         bottom: 0;
-        width: 60vw;
+        width: 80vw;
         height: 100vh;
         background-color: #fafafa;
     }
@@ -128,8 +128,4 @@ export const StyledMerchantLink = styled(AniLink)`
 export const StyledUserIcon = styled(FontAwesomeIcon)`
     margin-right: 15px;
     font-size: 14px;
-
-    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        margin-right: 0;
-    }
 `

@@ -8,14 +8,14 @@ export const StyledCol = styled(Col)`
     min-height: 500px;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        min-height: 350px !important;
+        min-height: 250px !important;
     }
 `
 export const StyledBackground = styled(BackgroundImage)`
     min-height: 400px;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        min-height: 250px !important;
+        min-height: 150px !important;
     }
 `
 export const StyledText = styled.div`

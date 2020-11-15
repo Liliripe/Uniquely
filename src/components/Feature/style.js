@@ -22,9 +22,9 @@ export const StyledGradient = styled.div`
     position: relative;
     flex-direction: column;
     justify-content: center;
+    min-height: 500px;
     
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        max-height: 400px;
         min-height: 400px;
         padding: 20px;
 
