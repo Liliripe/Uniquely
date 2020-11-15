@@ -32,8 +32,8 @@ const Layout = ({ children }) => {
           />
         </motion.div>
         {children}
+        <Footer />
       </div>
-      <Footer />
       <GlobalStyle />
     </ThemeProvider>
   )

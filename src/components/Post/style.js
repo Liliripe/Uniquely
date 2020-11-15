@@ -1,7 +1,11 @@
 import styled from 'styled-components'
+import Col from 'react-bootstrap/Col'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import BackgroundImage from 'gatsby-background-image'
 
+export const StyledCol = styled(Col)`
+    margin-bottom: 80px;
+`
 export const StyledImage = styled(BackgroundImage)`
     min-height: 450px;
 `

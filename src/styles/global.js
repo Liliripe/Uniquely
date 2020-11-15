@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     flex: 1 0 auto;
     position: relative;
     z-index: 2;
-    margin-bottom: 75vh;
+    background-color: #fff;
   }
 
   h1, h2, h3, h4, h5, h6 {
