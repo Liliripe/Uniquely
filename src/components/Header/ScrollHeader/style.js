@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Col from 'react-bootstrap/Col'
 
 export const StyledScrollHeader = styled.div`
     position: fixed;
@@ -23,4 +24,12 @@ export const StyledScrollHeader = styled.div`
 export const StyledWrapper = styled.div`
     display: flex;
     flex-direction: row;
+`
+export const LogoCol = styled(Col)`
+    margin-left: 30px;
+`
+export const MenuCol = styled(Col)`
+    position: absolute;
+    left: 20px;
+    margin-top: 2px;
 `

@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Button from '../Button'
 import { 
   StyledBanner, 
+  StyledGradient,
   StyledBox,
   StyledSubtitle, 
   StyledTitle, 
@@ -67,21 +68,23 @@ const Banner = ({ subtitle }) => {
               Tag="section"
               fluid={popular.node.featured_media.localFile.childImageSharp.fluid}
             >
-              <StyledBox>
-                <StyledSubtitle>
-                  {subtitle}
-                </StyledSubtitle>
-                <StyledTitle>
-                  {popular.node.title}
-                </StyledTitle>
-                <StyledExcerpt 
-                  dangerouslySetInnerHTML={{ __html: popular.node.excerpt }} 
-                />
-                <Button
-                  slug={popular.node.slug}
-                  title="View Destination" 
-                />
-              </StyledBox>
+              <StyledGradient>
+                <StyledBox>
+                  <StyledSubtitle>
+                    {subtitle}
+                  </StyledSubtitle>
+                  <StyledTitle>
+                    {popular.node.title}
+                  </StyledTitle>
+                  <StyledExcerpt 
+                    dangerouslySetInnerHTML={{ __html: popular.node.excerpt }} 
+                  />
+                  <Button
+                    slug={popular.node.slug}
+                    title="View Destination" 
+                  />
+                </StyledBox>
+              </StyledGradient>
             </StyledBanner>
           </Col>
         </motion.div>

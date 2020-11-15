@@ -8,7 +8,7 @@ import Wrapper from '../../Wrapper'
 import Logo from '../Logo'
 import Menu from '../Nav/Menu'
 import Merchant from '../Nav/Merchant'
-import { StyledScrollHeader, StyledWrapper } from './style'
+import { StyledScrollHeader, StyledWrapper, LogoCol, MenuCol } from './style'
 
 class ScrollHeader extends React.Component {
   componentDidMount() {
@@ -40,12 +40,12 @@ class ScrollHeader extends React.Component {
             <Row>
                 <Wrapper>
                     <StyledWrapper>
-                        <Col md={1}>
+                        <LogoCol md={1}>
                             <Logo align="left" width="120px" padding="0" />
-                        </Col>
-                        <Col md={6}>
+                        </LogoCol>
+                        <MenuCol md={6}>
                             <Menu open={this.props.open} setOpen={this.props.setOpen} />
-                        </Col>
+                        </MenuCol>
                         <Col md={4} className="ml-auto">
                             <Merchant />
                         </Col>

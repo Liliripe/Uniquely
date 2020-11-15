@@ -25,7 +25,7 @@ const FeatureGrid = ({ title, slug, categories, image }) => {
   }, [controls, inView]);
 
   return (
-    <StyledCol lg="3" key={slug}>
+    <StyledCol xs={6} lg={6} xl={3} key={slug}>
       <motion.div
         ref={ref}
         animate={controls}
