@@ -1,29 +1,91 @@
 import styled from 'styled-components'
+import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import BackgroundImage from 'gatsby-background-image'
 
-export const StyledCol = styled(Col)`
-    position: relative;
-    min-height: 500px;
-
-    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        min-height: 250px !important;
+export const RowWrap = styled(Row)`
+    .row:first-of-type {
+        flex-direction: row-reverse;
+    }
+    @media screen and (max-width: ${props => props.theme.responsive.large}) {
+        margin-left: ${({hover}) => 
+            hover && '' || '0 !important'
+        };
     }
 `
-export const StyledBackground = styled(BackgroundImage)`
-    min-height: 400px;
+export const StyledRow = styled(Row)`
+    width: 100%;
 
-    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        min-height: 150px !important;
+    .block-text {
+        :hover + .block-image {
+            .block-background::after {
+                transition: all ease-in-out 1s;
+                background-size: 120%;
+            }
+        }
+    }
+`
+export const StyledCol = styled(Col)`
+    position: relative;
+    margin-bottom: 30px;
+`
+export const StyledBackground = styled(BackgroundImage)`
+    background-size: 100%;
+    transition: all ease-in-out 1s;
+
+    ::before,
+    ::after {
+        background-size: 100%;
+    }
+
+    @media screen and (max-width: ${props => props.theme.responsive.large}) {
+        height: ${({hover}) => 
+            hover && '400px' || '185px'
+        };
+    }
+    @media screen and (min-width: ${props => props.theme.responsive.large}) and (max-width: ${props => props.theme.responsive.xlarge}) {
+        height: ${({hover}) => 
+            hover && '500px' || '235px'
+        };
+    }
+    @media screen and (min-width: ${props => props.theme.responsive.xlarge}) and (max-width: ${props => props.theme.responsive.xxlarge}) {
+        height: ${({hover}) => 
+            hover && '560px' || '265px'
+        };
+    }
+    @media screen and (min-width: ${props => props.theme.responsive.xxlarge}) {
+        height: ${({hover}) => 
+            hover && '700px' || '335px'
+        };
     }
 `
 export const StyledText = styled.div`
-    margin: 15px 0 25px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: ${props => props.theme.colors.mgrey};
 `
-export const StyledTitle = styled.h5``
+export const StyledTitle = styled.h2`
+    margin-bottom: 20px;
+`
 export const StyledSubtitle = styled.p`
-    opacity: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+`
+export const StyledExcerpt = styled.p`
+    margin-bottom: 50px;
+    padding: 0 40px;
+    font-weight: 500;
+    text-align: center;
 `
 export const StyledLink = styled(AniLink)`
     opacity: 1 !important;
@@ -39,8 +101,8 @@ export const Overlay = styled.div`
     border: 1px solid ${props => props.theme.colors.black};
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     padding: 30px;
     opacity: 0;
     transition: opacity 0.3s;

@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
 
+import Button from '../../Button'
 import { 
+  StyledRow,
   StyledCol, 
   StyledBackground, 
   StyledText, 
   StyledTitle, 
   StyledSubtitle, 
+  StyledExcerpt,
   StyledLink,
   Overlay, 
   StyledButton 
 } from './style'
 
-const FeatureGrid = ({ title, slug, categories, image }) => {
+const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
@@ -25,47 +27,87 @@ const FeatureGrid = ({ title, slug, categories, image }) => {
   }, [controls, inView]);
 
   return (
-    <StyledCol xs={6} lg={6} xl={3} key={slug}>
-      <motion.div
-        ref={ref}
-        animate={controls}
-        initial="hidden"
-        variants={{
-            visible: { opacity: 1 },
-            hidden: { opacity: 0 }
-        }}
-        transition={{ duration: 1.3 }}
-      >
-        <StyledBackground
-            Tag="div"
-            fluid={image}
-        >
-          <StyledLink 
-            fade 
-            to={slug}
-            alt={title}
+    <>
+      {hover ?  
+        <StyledCol xs={xs} key={slug} hover>
+          <motion.div
+            ref={ref}
+            animate={controls}
+            initial="hidden"
+            variants={{
+                visible: { opacity: 1 },
+                hidden: { opacity: 0 }
+            }}
+            transition={{ duration: 1.3 }}
           >
-            <Overlay>
-              <StyledButton>View Details</StyledButton>
-            </Overlay>
-          </StyledLink>
-        </StyledBackground>
-  
-        <StyledText>
-          <AniLink 
-            fade 
-            to={slug}
-            alt={title}
-          >
-            <StyledTitle>{title}</StyledTitle>
-          </AniLink>
-    
-          {categories.slice(1, 2).map(category => (
-            <StyledSubtitle>{category.name}</StyledSubtitle>
-          ))}
-        </StyledText>
-      </motion.div>
-    </StyledCol>
+            <StyledBackground
+              Tag="div"
+              fluid={image}
+              hover
+            >
+              <StyledLink 
+                fade 
+                to={slug}
+                alt={title}
+              >
+                <Overlay>
+                  {categories.slice(0, 1).map(category => (
+                    <StyledSubtitle>{category.name}</StyledSubtitle>
+                  ))}
+                  <StyledTitle>{title}</StyledTitle>
+                  <StyledExcerpt 
+                    dangerouslySetInnerHTML={{ __html: excerpt }} 
+                  />
+                  <Button slug={slug} title="View Details" />
+                </Overlay>
+              </StyledLink>
+            </StyledBackground>
+          </motion.div>
+        </StyledCol>
+      :
+        <StyledRow>
+          <StyledCol className="block-text" xs={xs}>
+            <StyledText>
+              {categories.slice(0, 1).map(category => (
+                <StyledSubtitle>{category.name}</StyledSubtitle>
+              ))}
+              <StyledLink 
+                fade 
+                to={slug}
+                alt={title}
+              >
+                <h5>{title}</h5>
+              </StyledLink>
+            </StyledText>
+          </StyledCol>
+
+          <StyledCol className="block-image" xs={xs} key={slug}>
+            <motion.div
+              ref={ref}
+              animate={controls}
+              initial="hidden"
+              variants={{
+                  visible: { opacity: 1 },
+                  hidden: { opacity: 0 }
+              }}
+              transition={{ duration: 1.3 }}
+            >
+              <StyledLink 
+                fade 
+                to={slug}
+                alt={title}
+              >
+                <StyledBackground
+                  Tag="div"
+                  fluid={image}
+                  className="block-background"
+                />
+              </StyledLink>
+            </motion.div>
+          </StyledCol>
+        </StyledRow>
+      }
+    </>
   )
 }
 
