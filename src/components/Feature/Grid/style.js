@@ -29,7 +29,7 @@ export const StyledCol = styled(Col)`
     margin-bottom: 30px;
 `
 export const StyledBackground = styled(BackgroundImage)`
-    background-size: 110%;
+    background-size: 150%;
 
     @media screen and (max-width: ${props => props.theme.responsive.large}) {
         background-size: 100%;
@@ -67,6 +67,10 @@ export const StyledText = styled.div`
 `
 export const StyledTitle = styled.h2`
     margin-bottom: 20px;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        margin-bottom: 40px;
+    }
 `
 export const StyledSmallTitle = styled.h5`
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
@@ -85,6 +89,10 @@ export const StyledExcerpt = styled.p`
     padding: 0 40px;
     font-weight: 500;
     text-align: center;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        display: none;
+    }
 `
 export const StyledLink = styled(AniLink)`
     opacity: 1 !important;
@@ -106,7 +114,7 @@ export const Overlay = styled.div`
     opacity: 0;
     transition: opacity 0.3s;
 
-    @media screen and (max-width: ${props => props.theme.responsive.medium}) {
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
         opacity: 1;
     }
 
