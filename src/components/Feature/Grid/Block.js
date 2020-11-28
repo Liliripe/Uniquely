@@ -9,11 +9,11 @@ import {
   StyledBackground, 
   StyledText, 
   StyledTitle, 
+  StyledSmallTitle,
   StyledSubtitle, 
   StyledExcerpt,
   StyledLink,
-  Overlay, 
-  StyledButton 
+  Overlay
 } from './style'
 
 const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => {
@@ -66,7 +66,7 @@ const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => 
         </StyledCol>
       :
         <StyledRow>
-          <StyledCol className="block-text" xs={xs}>
+          <StyledCol xs={xs}>
             <StyledText>
               {categories.slice(0, 1).map(category => (
                 <StyledSubtitle>{category.name}</StyledSubtitle>
@@ -76,12 +76,12 @@ const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => 
                 to={slug}
                 alt={title}
               >
-                <h5>{title}</h5>
+                <StyledSmallTitle>{title}</StyledSmallTitle>
               </StyledLink>
             </StyledText>
           </StyledCol>
 
-          <StyledCol className="block-image" xs={xs} key={slug}>
+          <StyledCol xs={xs} key={slug}>
             <motion.div
               ref={ref}
               animate={controls}

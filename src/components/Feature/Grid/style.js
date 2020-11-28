@@ -17,12 +17,10 @@ export const RowWrap = styled(Row)`
 export const StyledRow = styled(Row)`
     width: 100%;
 
-    .block-text {
-        :hover + .block-image {
-            .block-background::after {
-                transition: all ease-in-out 1s;
-                background-size: 120%;
-            }
+    :hover {
+        .block-background::after {
+            background-size: 110% !important;
+            transition: background-size 2s !important;
         }
     }
 `
@@ -32,12 +30,6 @@ export const StyledCol = styled(Col)`
 `
 export const StyledBackground = styled(BackgroundImage)`
     background-size: 100%;
-    transition: all ease-in-out 1s;
-
-    ::before,
-    ::after {
-        background-size: 100%;
-    }
 
     @media screen and (max-width: ${props => props.theme.responsive.large}) {
         height: ${({hover}) => 
@@ -60,6 +52,7 @@ export const StyledBackground = styled(BackgroundImage)`
         };
     }
 `
+export const StyledImage = styled.image``
 export const StyledText = styled.div`
     display: flex;
     flex-direction: column;
@@ -73,6 +66,11 @@ export const StyledText = styled.div`
 `
 export const StyledTitle = styled.h2`
     margin-bottom: 20px;
+`
+export const StyledSmallTitle = styled.h5`
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        font-size: 16px;
+    }
 `
 export const StyledSubtitle = styled.p`
     text-transform: uppercase;
