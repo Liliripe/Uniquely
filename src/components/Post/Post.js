@@ -18,7 +18,7 @@ const Post = ({ type, number, title, subtitle }) => {
             title
             slug
             categories {
-                name
+              name
             }
             featured_media {
               localFile {

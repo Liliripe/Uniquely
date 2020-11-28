@@ -3,103 +3,116 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 
-export const BlogPostTemplate = ({
+export const DestinationTemplate = ({
   content,
+  location,
   categories,
-  tags,
   title,
   date,
-  author,
+  booking_url,
+  featured_image,
+  gallery_image1,
+  gallery_image2,
+  gallery_image3,
+  gallery_image4,
+  gallery_image5,
+  posts,
+  destinations
 }) => {
   return (
-    <section className="section">
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
-            <div style={{ marginTop: `4rem` }}>
-              <p>
-                {date} - posted by{' '}
-                <Link to={`/author/${author.slug}`}>{author.name}</Link>
-              </p>
-              {categories && categories.length ? (
-                <div>
-                  <h4>Categories</h4>
-                  <ul className="taglist">
-                    {categories.map(category => (
-                      <li key={`${category.slug}cat`}>
-                        <Link to={`/categories/${category.slug}/`}>
-                          {category.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              {tags && tags.length ? (
-                <div>
-                  <h4>Tags</h4>
-                  <ul className="taglist">
-                    {tags.map(tag => (
-                      <li key={`${tag.slug}tag`}>
-                        <Link to={`/tags/${tag.slug}/`}>{tag.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-            </div>
+    <div>
+      <strong>Title:</strong> {title}<br />
+      <strong>Location:</strong> {location}<br />
+      <strong>Categories:</strong> 
+      {categories && categories.length ? (
+        <ul>
+          {categories.map(category => (
+            <li key={`${category.slug}cat`}>
+              <Link to={`/categories/${category.slug}/`}>
+                {category.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      <strong>Date:</strong> {date}<br />
+      <strong>Booking URL:</strong> {booking_url}<br />
+      <strong>Featured Image URL:</strong> {featured_image.localFile.childImageSharp.fluid.src}<br />
+      <strong>Gallery Image 1 URL:</strong> {gallery_image1}<br />
+      <strong>Gallery Image 2 URL:</strong> {gallery_image2}<br />
+      <strong>Gallery Image 3 URL:</strong> {gallery_image3}<br />
+      <strong>Gallery Image 4 URL:</strong> {gallery_image4}<br />
+      <strong>Gallery Image 5 URL:</strong> {gallery_image5}<br />
+      <strong>Content:</strong> <div dangerouslySetInnerHTML={{ __html: content }} /><br /><br />
+      <strong>Connected Posts:</strong> 
+      {posts.map(post => {
+        return post.node.acf.location_name === location ?
+          <div>
+            {post.node.title}<br />
+            {post.node.acf.location_name}<br /><br />
           </div>
-        </div>
-      </div>
-    </section>
+        :
+          <div>no match<br /><br /></div>
+        }
+      )}
+      <strong>Other Locations:</strong> 
+      {destinations.map(destination => {
+        return destination.node.title !== title ?
+          <div>
+            {destination.node.title}<br /><br />
+          </div>
+        :
+          <div>no match<br /><br /></div>
+        }
+      )}
+    </div>
   )
 }
 
-BlogPostTemplate.propTypes = {
+DestinationTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   title: PropTypes.string,
 }
 
-const BlogPost = ({ data }) => {
-  const { wordpressPost: post } = data
+const DestinationPost = ({ data }) => {
+  const destination = data.wordpressWpDestinations
+  const allPosts = data.allWordpressPost.edges
+  const allDestinations = data.allWordpressWpDestinations.edges
 
   return (
     <>
-      <Helmet title={`${post.title} | Blog`} />
-      <BlogPostTemplate
-        content={post.content}
-        categories={post.categories}
-        tags={post.tags}
-        title={post.title}
-        date={post.date}
-        author={post.author}
+      <Helmet title={`${destination.title} | Explore`} />
+      <DestinationTemplate
+        title={destination.title}
+        location={destination.acf.location_name}
+        categories={destination.categories}
+        date={destination.date}
+        booking_url={destination.acf.booking_url}
+        featured_image={destination.featured_media}
+        gallery_image1={destination.acf.image_1.url}
+        gallery_image2={destination.acf.image_2.url}
+        gallery_image3={destination.acf.image_3.url}
+        gallery_image4={destination.acf.image_4.url}
+        gallery_image5={destination.acf.image_5.url}
+        content={destination.content}
+        posts={allPosts}
+        destinations={allDestinations}
       />
     </>
   )
 }
 
-BlogPost.propTypes = {
+DestinationPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default BlogPost
+export default DestinationPost
 
 export const pageQuery = graphql`
-  fragment PostFields on wordpress__POST {
-    id
-    slug
-    content
-    date(formatString: "MMMM DD, YYYY")
-    title
-  }
-  query DestinationsByID($id: String!) {
-    wordpressPost(id: { eq: $id }) {
+  query DestinationsandPosts($id: String!) {
+    wordpressWpDestinations(id: { eq: $id }) {
       id
       title
       slug
@@ -109,13 +122,42 @@ export const pageQuery = graphql`
         name
         slug
       }
-      tags {
-        name
-        slug
+      acf {
+        booking_url
+        location_name
+        image_1 {url}
+        image_2 {url}
+        image_3 {url}
+        image_4 {url}
+        image_5 {url}
       }
-      author {
-        name
-        slug
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              src
+            }
+          }
+        }
+      }
+    }
+    allWordpressPost {
+      edges {
+        node {
+          title
+          slug
+          id
+          acf {
+            location_name
+          }
+        }
+      }
+    }
+    allWordpressWpDestinations {
+      edges {
+        node {
+          title
+        }
       }
     }
   }
