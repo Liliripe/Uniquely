@@ -11,7 +11,8 @@ const theme = {
     sans: '"Muli", sans-serif',
   },
   responsive: {
-    full: "1200px",
+    xxlarge: "1800px",
+    xlarge: "1500px",
     large: "992px",
     medium: "870px",
     tablet: "768px",

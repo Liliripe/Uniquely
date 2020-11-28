@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick-theme.css'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import Wrapper from '../Wrapper'
 import Slide from './Slide'
 import { StyledIcon } from './style'
 
@@ -41,19 +40,17 @@ const Carousel = ({ limit }) => (
       }
     `}
     render = { data => (
-      <Wrapper>
-        <Slider {...settings}>
-          {data.allWordpressWpDestinations.edges.slice(0, `${limit}`).map(destination => (
-            <Slide 
-              key={destination.node.id} 
-              title={destination.node.title}
-              slug={destination.node.slug}
-              excerpt={destination.node.excerpt}
-              image={destination.node.featured_media.localFile.childImageSharp.fluid}
-            />
-          ))}
-        </Slider>
-      </Wrapper>
+      <Slider {...settings}>
+        {data.allWordpressWpDestinations.edges.slice(0, `${limit}`).map(destination => (
+          <Slide 
+            key={destination.node.id} 
+            title={destination.node.title}
+            slug={destination.node.slug}
+            excerpt={destination.node.excerpt}
+            image={destination.node.featured_media.localFile.childImageSharp.fluid}
+          />
+        ))}
+      </Slider>
     )}
   />
 )

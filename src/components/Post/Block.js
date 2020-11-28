@@ -12,7 +12,7 @@ import {
 
 const Block = ({ ...data }) => {
     return (
-        data.allWordpressPost.edges.slice(0, 4).map(post => (
+        data.allWordpressPost.edges.slice(0, 4).map.length > 4 ? (post => (
             <StyledCol xs={6} lg={6} xl={3}>
                 <StyledImage
                     Tag="div"
@@ -39,7 +39,7 @@ const Block = ({ ...data }) => {
                     <h5>{post.node.title}</h5>
                 </AniLink>
             </StyledCol>
-        ))
+        )) : ''
     )
 }
 

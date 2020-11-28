@@ -22,12 +22,12 @@ export default class IndexPage extends React.Component {
         />
         <Feature grid />
         <Feature subtitle="Featured Destination" />
-        <Post 
+        {/* <Post 
           type="list" 
           number="3" 
           title="Popular Destinations"
           subtitle="Browse the Best-Reviewed"
-        />
+        /> */}
       </>
     )
   }

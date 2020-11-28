@@ -11,29 +11,6 @@ const Feature = ({ grid, subtitle }) => (
   <StaticQuery
     query={graphql`
       query {
-        allWordpressWpDestinations(
-          filter: {categories: {elemMatch: {slug: { eq: "featured" }}}}
-        ) {
-          edges {
-            node {
-              title
-              id
-              slug
-              categories {
-                name
-              }
-              featured_media {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 650) {
-                        ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
         allWordpressPost(
           filter: {categories: {elemMatch: {slug: { eq: "featured" }}}}
         ) {
@@ -42,6 +19,7 @@ const Feature = ({ grid, subtitle }) => (
               title
               id
               slug
+              excerpt
               categories {
                 name
               }
