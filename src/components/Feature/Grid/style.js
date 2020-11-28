@@ -29,9 +29,10 @@ export const StyledCol = styled(Col)`
     margin-bottom: 30px;
 `
 export const StyledBackground = styled(BackgroundImage)`
-    background-size: 100%;
+    background-size: 110%;
 
     @media screen and (max-width: ${props => props.theme.responsive.large}) {
+        background-size: 100%;
         height: ${({hover}) => 
             hover && '400px' || '185px'
         };
@@ -104,6 +105,10 @@ export const Overlay = styled.div`
     padding: 30px;
     opacity: 0;
     transition: opacity 0.3s;
+
+    @media screen and (max-width: ${props => props.theme.responsive.medium}) {
+        opacity: 1;
+    }
 
     :hover {
         opacity: 1;
