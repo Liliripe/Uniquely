@@ -7,6 +7,8 @@ import Breadcrumbs from '../components/Destination/Breadcrumbs'
 import Wrapper from '../components/Wrapper'
 import Carousel from '../components/Carousel'
 import Content from '../components/Destination/Content'
+import LocalPosts from '../components/Destination/Posts'
+import Related from '../components/Destination/Related'
 
 export const DestinationTemplate = ({
   content,
@@ -17,11 +19,8 @@ export const DestinationTemplate = ({
   date,
   booking_url,
   featured_image,
-  gallery_image1,
   gallery_image2,
   gallery_image3,
-  gallery_image4,
-  gallery_image5,
   posts,
   destinations
 }) => {
@@ -38,11 +37,8 @@ export const DestinationTemplate = ({
           type="destination" 
           limit="5" 
           id={id}
-          img1={gallery_image1}
           img2={gallery_image2}
           img3={gallery_image3}
-          img4={gallery_image4}
-          img5={gallery_image5}
         />
 
         <Content 
@@ -54,28 +50,17 @@ export const DestinationTemplate = ({
         />
       </Wrapper>
 
-      <strong>Connected Posts:</strong> 
-      {posts.map(post => {
-        return post.node.acf.location_name === location ?
-          <div>
-            {post.node.title}<br />
-            {post.node.acf.location_name}<br /><br />
-          </div>
-        :
-          <div>no match<br /><br /></div>
-        }
-      )}
-      
-      <strong>Other Locations:</strong> 
-      {destinations.map(destination => {
-        return destination.node.title !== title ?
-          <div>
-            {destination.node.title}<br /><br />
-          </div>
-        :
-          <div>no match<br /><br /></div>
-        }
-      )}
+      <LocalPosts 
+        heading="Local events and sales"
+        location={location}
+        posts={posts}
+      />
+
+      <Related
+        heading="Related destinations"
+        title={title}
+        destinations={destinations}
+      />
     </>
   )
 }
@@ -101,11 +86,8 @@ const DestinationPost = ({ data }) => {
         date={destination.date}
         booking_url={destination.acf.booking_url}
         featured_image={destination.featured_media}
-        gallery_image1={destination.acf.image_1.url}
-        gallery_image2={destination.acf.image_2.url}
-        gallery_image3={destination.acf.image_3.url}
-        gallery_image4={destination.acf.image_4.url}
-        gallery_image5={destination.acf.image_5.url}
+        gallery_image2={destination.acf.image_2.source_url}
+        gallery_image3={destination.acf.image_3.source_url}
         content={destination.content}
         posts={allPosts}
         destinations={allDestinations}
@@ -137,11 +119,8 @@ export const pageQuery = graphql`
       acf {
         booking_url
         location_name
-        image_1 {url}
-        image_2 {url}
-        image_3 {url}
-        image_4 {url}
-        image_5 {url}
+        image_2 {source_url}
+        image_3 {source_url}
       }
       featured_media {
         localFile {
@@ -162,6 +141,15 @@ export const pageQuery = graphql`
           acf {
             location_name
           }
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -169,6 +157,20 @@ export const pageQuery = graphql`
       edges {
         node {
           title
+          slug
+          id
+          acf {
+            location_name
+          }
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }

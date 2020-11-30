@@ -140,17 +140,14 @@ const GlobalStyle = createGlobalStyle`
   .slick-arrow {
       position: absolute;
       z-index: 10;
-      height: 5%;
-      top: 47.5%;
-      background-color: ${props => props.theme.colors.white};
+      top: 50%;
+      color: white;
+      opacity: 1;
+      font-size: 22px;
       transition: padding ease-in-out 0.15s;
 
       ::before {
         display: none;
-      }
-
-      :hover {
-        background-color: ${props => props.theme.colors.white};
       }
 
       div {
@@ -160,26 +157,25 @@ const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         justify-content: center;
       }
+
+      path {
+        fill: white;
+      }
   }
   .slick-prev {
       left: 0;
-      padding: 30px 40px 30px 50px;
+      padding: 30px 40px 30px 20px;
 
       :hover {
-        padding: 30px 50px 30px 40px;
+        padding: 30px 40px 30px 30px;
       }
   }
   .slick-next {
       right: 0;
-      padding: 30px 70px 30px 20px;
+      padding: 30px 40px 30px 20px;
 
       :hover {
-        padding: 30px 60px 30px 30px;
-      }
-  }
-  @media screen and (max-width: ${props => props.theme.responsive.medium}) {
-      .slick-arrow {
-          display: none !important;
+        padding: 30px 50px 30px 20px;
       }
   }
 `

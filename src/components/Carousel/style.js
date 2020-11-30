@@ -95,8 +95,5 @@ export const StyledContent = styled.div`
     }
 `
 export const StyledIcon = styled(FontAwesomeIcon)`
-    color: ${props => props.theme.colors.black};
-    font-size: 22px;
     position: relative;
-    opacity: 0.5;
 `

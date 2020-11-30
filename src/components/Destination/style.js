@@ -65,7 +65,7 @@ export const StyledIcon = styled(FontAwesomeIcon)`
     margin-right: 7px;
 `
 export const StyledRow = styled(Row)`
-    margin: 40px 0;
+    margin: 40px 0 60px;
     align-items: center;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
