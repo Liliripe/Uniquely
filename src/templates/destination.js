@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+
+import Breadcrumbs from '../components/Destination/Breadcrumbs'
+import Wrapper from '../components/Wrapper'
+import Carousel from '../components/Carousel'
+import Content from '../components/Destination/Content'
 
 export const DestinationTemplate = ({
   content,
+  id,
   location,
   categories,
   title,
@@ -20,30 +26,34 @@ export const DestinationTemplate = ({
   destinations
 }) => {
   return (
-    <div>
-      <strong>Title:</strong> {title}<br />
-      <strong>Location:</strong> {location}<br />
-      <strong>Categories:</strong> 
-      {categories && categories.length ? (
-        <ul>
-          {categories.map(category => (
-            <li key={`${category.slug}cat`}>
-              <Link to={`/categories/${category.slug}/`}>
-                {category.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ) : null}
-      <strong>Date:</strong> {date}<br />
-      <strong>Booking URL:</strong> {booking_url}<br />
-      <strong>Featured Image URL:</strong> {featured_image.localFile.childImageSharp.fluid.src}<br />
-      <strong>Gallery Image 1 URL:</strong> {gallery_image1}<br />
-      <strong>Gallery Image 2 URL:</strong> {gallery_image2}<br />
-      <strong>Gallery Image 3 URL:</strong> {gallery_image3}<br />
-      <strong>Gallery Image 4 URL:</strong> {gallery_image4}<br />
-      <strong>Gallery Image 5 URL:</strong> {gallery_image5}<br />
-      <strong>Content:</strong> <div dangerouslySetInnerHTML={{ __html: content }} /><br /><br />
+    <>
+      <Breadcrumbs
+        title={title}
+        categories={categories}
+        image={featured_image.localFile.childImageSharp.fluid.src}
+      />
+
+      <Wrapper>
+        <Carousel 
+          type="destination" 
+          limit="5" 
+          id={id}
+          img1={gallery_image1}
+          img2={gallery_image2}
+          img3={gallery_image3}
+          img4={gallery_image4}
+          img5={gallery_image5}
+        />
+
+        <Content 
+          title={title}
+          content={content}
+          categories={categories}
+          date={date}
+          bookingURL={booking_url}
+        />
+      </Wrapper>
+
       <strong>Connected Posts:</strong> 
       {posts.map(post => {
         return post.node.acf.location_name === location ?
@@ -55,6 +65,7 @@ export const DestinationTemplate = ({
           <div>no match<br /><br /></div>
         }
       )}
+      
       <strong>Other Locations:</strong> 
       {destinations.map(destination => {
         return destination.node.title !== title ?
@@ -65,7 +76,7 @@ export const DestinationTemplate = ({
           <div>no match<br /><br /></div>
         }
       )}
-    </div>
+    </>
   )
 }
 
@@ -84,6 +95,7 @@ const DestinationPost = ({ data }) => {
       <Helmet title={`${destination.title} | Explore`} />
       <DestinationTemplate
         title={destination.title}
+        id={destination.id}
         location={destination.acf.location_name}
         categories={destination.categories}
         date={destination.date}

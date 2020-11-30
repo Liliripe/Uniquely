@@ -15,6 +15,11 @@ export const StyledSlide = styled.div`
         position: relative;
     }
 `
+export const StaticImage = styled.section`
+    background-size: cover;
+    background-position: center;
+    background-image: url(${props => props.background});
+`
 export const StyledContent = styled.div`
     position: relative;
     width: 100%;

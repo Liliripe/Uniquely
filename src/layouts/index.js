@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { motion } from 'framer-motion'
 
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
@@ -31,6 +32,7 @@ const Layout = ({ children }) => {
             }}
           />
         </motion.div>
+        <Header />
         {children}
         <Footer />
       </div>
