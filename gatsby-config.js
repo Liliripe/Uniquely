@@ -20,7 +20,7 @@ module.exports = {
         baseUrl: 'madebyrossi.com/client/wordpress',
         hostingWPCOM: false,
         protocol: 'https',
-        useACF: false,
+        useACF: true,
         auth: {},
         verboseOutput: false,
         excludedRoutes: [
@@ -206,7 +206,8 @@ module.exports = {
           "**/wc/v3/data/currencies/current",
           "**/wccom-site/v1/installer",
           "**/wc-analytics/admin/notes/update",
-          "**/wc-admin/onboarding/tasks/status"
+          "**/wc-admin/onboarding/tasks/status",
+          "**/acf/v3/options/options"
         ],
       },
     },

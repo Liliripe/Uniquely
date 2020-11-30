@@ -9,7 +9,16 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Slide from './Slide'
 import { StyledIcon } from './style'
 
-const Carousel = ({ limit }) => (
+const Carousel = ({ 
+  limit, 
+  type, 
+  id, 
+  img1, 
+  img2, 
+  img3, 
+  img4, 
+  img5 
+}) => (
   <StaticQuery
     query={graphql`
       query {
@@ -40,17 +49,54 @@ const Carousel = ({ limit }) => (
       }
     `}
     render = { data => (
-      <Slider {...settings}>
-        {data.allWordpressWpDestinations.edges.slice(0, `${limit}`).map(destination => (
-          <Slide 
-            key={destination.node.id} 
-            title={destination.node.title}
-            slug={destination.node.slug}
-            excerpt={destination.node.excerpt}
-            image={destination.node.featured_media.localFile.childImageSharp.fluid}
-          />
-        ))}
-      </Slider>
+      <>
+        {type === 'hero' ? 
+          <Slider {...settings}>
+            {data.allWordpressWpDestinations.edges.slice(0, `${limit}`).map(destination => (
+              <Slide 
+                key={destination.node.id} 
+                title={destination.node.title}
+                slug={destination.node.slug}
+                excerpt={destination.node.excerpt}
+                image={destination.node.featured_media.localFile.childImageSharp.fluid}
+              />
+            ))}
+          </Slider>
+        : 
+          <Slider {...settings}>
+            {img1 ? 
+              <Slide 
+                key={id} 
+                staticImg={img1}
+              />
+            : ''}
+            {img2 ? 
+              <Slide 
+                key={id} 
+                staticImg={img2}
+              />
+            : ''}
+            {img3 ? 
+              <Slide 
+                key={id} 
+                staticImg={img3}
+              />
+            : ''}
+            {img4 ? 
+              <Slide 
+                key={id} 
+                staticImg={img4}
+              />
+            : ''}
+            {img5 ? 
+              <Slide 
+                key={id} 
+                staticImg={img5}
+              />
+            : ''}
+          </Slider>
+        }
+      </>
     )}
   />
 )
