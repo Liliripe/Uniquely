@@ -1,96 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
-import Breadcrumbs from '../components/Destination/Breadcrumbs'
-import Wrapper from '../components/Wrapper'
-import Carousel from '../components/Carousel'
-import Content from '../components/Destination/Content'
-import LocalPosts from '../components/Destination/Posts'
-import Related from '../components/Destination/Related'
-
-export const DestinationTemplate = ({
-  content,
-  id,
-  location,
-  categories,
-  title,
-  date,
-  booking_url,
-  featured_image,
-  gallery_image2,
-  gallery_image3,
-  posts,
-  destinations
-}) => {
+export const DestinationPostTemplate = ({ title }) => {
   return (
-    <>
-      <Breadcrumbs
-        title={title}
-        categories={categories}
-        image={featured_image.localFile.childImageSharp.fluid.src}
-      />
-
-      <Wrapper>
-        <Carousel 
-          type="destination" 
-          limit="5" 
-          id={id}
-          img2={gallery_image2}
-          img3={gallery_image3}
-        />
-
-        <Content 
-          title={title}
-          content={content}
-          categories={categories}
-          date={date}
-          bookingURL={booking_url}
-        />
-      </Wrapper>
-
-      <LocalPosts 
-        heading="Local events and sales"
-        location={location}
-        posts={posts}
-      />
-
-      <Related
-        heading="Related destinations"
-        title={title}
-        destinations={destinations}
-      />
-    </>
+    <section className="section">
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+              {title}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
-DestinationTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
+DestinationPostTemplate.propTypes = {
   title: PropTypes.string,
 }
 
 const DestinationPost = ({ data }) => {
-  const destination = data.wordpressWpDestinations
-  const allPosts = data.allWordpressPost.edges
-  const allDestinations = data.allWordpressWpDestinations.edges
+  const { wordpressWpDestinations: post } = data
 
   return (
     <>
-      <Helmet title={`${destination.title} | Explore`} />
-      <DestinationTemplate
-        title={destination.title}
-        id={destination.id}
-        location={destination.acf.location_name}
-        categories={destination.categories}
-        date={destination.date}
-        booking_url={destination.acf.booking_url}
-        featured_image={destination.featured_media}
-        gallery_image2={destination.acf.image_2.source_url}
-        gallery_image3={destination.acf.image_3.source_url}
-        content={destination.content}
-        posts={allPosts}
-        destinations={allDestinations}
+      <Helmet title={`${post.title} | Destinations`} />
+      <DestinationPostTemplate
+        title={post.title}
       />
     </>
   )
@@ -105,74 +45,14 @@ DestinationPost.propTypes = {
 export default DestinationPost
 
 export const pageQuery = graphql`
-  query DestinationsandPosts($id: String!) {
+  fragment DestinationFields on wordpress__POST {
+    id
+    title
+  }
+  query DestinationPostByID($id: String!) {
     wordpressWpDestinations(id: { eq: $id }) {
       id
       title
-      slug
-      content
-      date(formatString: "MMMM DD, YYYY")
-      categories {
-        name
-        slug
-      }
-      acf {
-        booking_url
-        location_name
-        image_2 {source_url}
-        image_3 {source_url}
-      }
-      featured_media {
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1920) {
-              src
-            }
-          }
-        }
-      }
-    }
-    allWordpressPost {
-      edges {
-        node {
-          title
-          slug
-          id
-          acf {
-            location_name
-          }
-          featured_media {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    allWordpressWpDestinations {
-      edges {
-        node {
-          title
-          slug
-          id
-          acf {
-            location_name
-          }
-          featured_media {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
     }
   }
 `
