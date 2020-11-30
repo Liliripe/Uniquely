@@ -1,22 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-export const ProductTemplate = () => {
+export const ProductPostTemplate = ({ title }) => {
   return (
-    <section className="section">
-      test product template
-    </section>
+    <div className="section">
+      {title}
+    </div>
   )
 }
 
-const Product = ({ data }) => {
+ProductPostTemplate.propTypes = {
+  title: PropTypes.string,
+}
+
+const ProductPost = ({ data }) => {
+  const { wordpressWcProducts: product } = data
+
   return (
     <>
-      product template
+      <Helmet title={`${product.name} | Shop`} />
+      <ProductPostTemplate
+        title={product.name}
+      />
     </>
   )
 }
 
-export default Product
+ProductPost.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
+}
+
+export default ProductPost
+
+export const pageQuery = graphql`
+  fragment PostFields on wordpress__POST {
+    id
+    name
+  }
+  query ProductPostByID {
+    wordpressWcProducts(name: { eq: "Guided Sight-Seeing Adventure" }) {
+      id
+      name
+    }
+  }
+`

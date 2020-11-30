@@ -23,6 +23,18 @@ module.exports = {
         useACF: true,
         auth: {},
         verboseOutput: false,
+        includedRoutes: [
+          "/*/*/posts",
+          "/*/*/pages",
+          "/*/*/destinations",
+          "/*/*/products",
+          "/*/*/categories",
+          "/*/*/taxonomies",
+          "/*/*/tags",
+          "/*/*/users",
+          "/*/*/media",
+          "/*/*/menus"
+        ],
         excludedRoutes: [
           "**/wp/v2/users/me",
           "**/wp/v2/block-types",
