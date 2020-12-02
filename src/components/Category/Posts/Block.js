@@ -9,7 +9,7 @@ const Block = ({
     image
 }) => {
     return (
-        <Styledcol xs={6} key={key}>
+        <Styledcol xs={12} md={6} key={key}>
             <StyledImage 
                 Tag="section"
                 fluid={image}
