@@ -51,5 +51,9 @@ export const StyledLink = styled(AniLink)`
         position: relative;
         z-index: 3;
         text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+
+        @media screen and (max-width: ${props => props.theme.responsive.medium}) {
+            font-size: 30px;
+        }
     }
 `

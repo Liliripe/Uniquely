@@ -45,6 +45,10 @@ export const OuterWrapper = styled.div`
         letter-spacing: 2px;
         font-weight: 600;
 
+        @media screen and (max-width: ${props => props.theme.responsive.medium}) {
+            display: none;
+        }
+
         li {
             display: inline-block;
             padding-left: 10px;
