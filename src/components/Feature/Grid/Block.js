@@ -16,7 +16,7 @@ import {
   Overlay
 } from './style'
 
-const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => {
+const FeatureGrid = ({ xs, md, hover, title, slug, excerpt, categories, image }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
@@ -29,7 +29,7 @@ const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => 
   return (
     <>
       {hover ?  
-        <StyledCol xs={xs} key={slug} hover>
+        <StyledCol xs={xs} md={md} key={slug} hover>
           <motion.div
             ref={ref}
             animate={controls}
@@ -66,7 +66,7 @@ const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => 
         </StyledCol>
       :
         <StyledRow>
-          <StyledCol xs={xs}>
+          <StyledCol xs={xs} md={md} className="small-col">
             <StyledText>
               {categories.slice(0, 1).map(category => (
                 <StyledSubtitle>{category.name}</StyledSubtitle>
@@ -81,7 +81,7 @@ const FeatureGrid = ({ xs, hover, title, slug, excerpt, categories, image }) => 
             </StyledText>
           </StyledCol>
 
-          <StyledCol xs={xs} key={slug}>
+          <StyledCol xs={xs} md={md} key={slug} className="small-col">
             <motion.div
               ref={ref}
               animate={controls}

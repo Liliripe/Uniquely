@@ -17,7 +17,12 @@ export const StyledButton = styled(AniLink)`
         }
     }
 
-    span.outer {
+    span {
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+        padding: 20px 45px;
         border: 1px solid ${({type}) => 
             type === 'solid' && 'transparent' ||
             'black'
@@ -27,7 +32,6 @@ export const StyledButton = styled(AniLink)`
             'transparent'
         };
         transition: all ease-in-out 0.1s;
-        padding: 15px 4px 18px;
 
         :hover {
             background-color: ${({type}) => 
@@ -37,13 +41,5 @@ export const StyledButton = styled(AniLink)`
             border-color: white;
             opacity: 1;
         }
-    }
-    span.inner {
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 1.5px;
-        font-weight: 700;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        padding: 15px 40px;
     }
 `

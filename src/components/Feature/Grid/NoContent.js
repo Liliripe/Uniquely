@@ -13,7 +13,7 @@ import {
   StyledLink
 } from './style'
 
-const NoContent = ({ xs }) => {
+const NoContent = ({ xs, md }) => {
     const data = useStaticQuery(graphql`
         query {
             AboutImg: file(relativePath: { eq: "about-us.jpg" }) {
@@ -44,7 +44,7 @@ const NoContent = ({ xs }) => {
 
     return (
         <StyledRow>
-            <StyledCol xs={xs}>
+            <StyledCol xs={xs} md={md} className="small-col">
                 <StyledText>
                     <StyledSubtitle>Uniquely</StyledSubtitle>
                     <StyledLink 
@@ -57,7 +57,7 @@ const NoContent = ({ xs }) => {
                 </StyledText>
             </StyledCol>
 
-            <StyledCol xs={xs}>
+            <StyledCol xs={xs} md={md} className="small-col">
                 <motion.div
                     ref={ref}
                     animate={controls}
@@ -81,7 +81,7 @@ const NoContent = ({ xs }) => {
                 </motion.div>
             </StyledCol>
 
-            <StyledCol xs={xs}>
+            <StyledCol xs={xs} md={md} className="small-col">
                 <motion.div
                     ref={ref}
                     animate={controls}
@@ -105,7 +105,7 @@ const NoContent = ({ xs }) => {
                 </motion.div>
             </StyledCol>
 
-            <StyledCol xs={xs}>
+            <StyledCol xs={xs} md={md} className="small-col">
                 <StyledText>
                     <StyledSubtitle>Questions?</StyledSubtitle>
                     <StyledLink 
