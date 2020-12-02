@@ -29,13 +29,14 @@ const Grid = ({ ...data }) => {
                     {data.allWordpressPost.edges.slice(1, 3).map.length > 1 ? (post => (
                         <Block 
                             xs={6}
+                            md={6}
                             title={post.node.title}
                             slug={post.node.slug}
                             categories={post.node.categories}
                             image={post.node.featured_media.localFile.childImageSharp.fluid}
                         />
                     )) :
-                        <NoContent xs={6} />
+                        <NoContent xs={6} md={6} />
                     }
                 </RowWrap>
             </Col>

@@ -13,6 +13,11 @@ export const RowWrap = styled(Row)`
             hover && '' || '0 !important'
         };
     }
+    @media screen and (max-width: ${props => props.theme.responsive.medium}) {
+        .small-col {
+            padding-right: 0;
+        }
+    }
 `
 export const StyledRow = styled(Row)`
     width: 100%;
@@ -27,10 +32,6 @@ export const StyledRow = styled(Row)`
 export const StyledCol = styled(Col)`
     position: relative;
     margin-bottom: 30px;
-
-    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
-        padding: 0 5px;
-    }
 `
 export const StyledBackground = styled(BackgroundImage)`
     background-size: 150%;
@@ -109,7 +110,6 @@ export const Overlay = styled.div`
     right: 0;
     z-index: 9;
     background: rgba(255, 255, 255, 0.75);
-    border: 1px solid ${props => props.theme.colors.black};
     display: flex;
     justify-content: center;
     flex-direction: column;

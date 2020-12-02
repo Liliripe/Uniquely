@@ -1,9 +1,6 @@
 import React from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import BackgroundImage from 'gatsby-background-image'
-import Col from 'react-bootstrap/Col'
 
-import { StyledImage } from './style'
+import { Styledcol, StyledImage,StyledLink } from './style'
 
 const Block = ({
     name,
@@ -12,16 +9,16 @@ const Block = ({
     image
 }) => {
     return (
-        <Col xs={6} key={key}>
-            <BackgroundImage 
+        <Styledcol xs={6} key={key}>
+            <StyledImage 
                 Tag="section"
                 fluid={image}
             >
-                <AniLink fade to={slug}>
+                <StyledLink fade to={slug}>
                     <h2>{name}</h2>
-                </AniLink>
-            </BackgroundImage>
-        </Col>
+                </StyledLink>
+            </StyledImage>
+        </Styledcol>
     )
 }
 

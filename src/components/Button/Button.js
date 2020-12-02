@@ -6,9 +6,7 @@ const Button = ({ slug, title, type }) => {
     return (
         <>
             <StyledButton to={slug} type={type} fade>
-                <span className="outer">
-                    <span className="inner">{title}</span>
-                </span>
+                <span>{title}</span>
             </StyledButton>
         </>
     )
