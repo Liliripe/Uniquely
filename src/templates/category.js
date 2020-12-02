@@ -50,7 +50,7 @@ const Category = ({ data, pageContext }) => {
             <CategoryBlock
               name={cat.node.name}
               key={cat.node.id}
-              slug={`/categories/${cat.node.slug}`}
+              slug={`/${cat.node.slug}`}
               image={cat.node.acf.featured_image.localFile.childImageSharp.fluid}
             />
           }

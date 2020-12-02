@@ -15,15 +15,17 @@ const Posts = ({ heading, location, posts }) => {
             <StyledTitle>{heading}</StyledTitle>
 
             <StyledSlider {...settings}>
-                {posts.map(post => {
-                    return post.node.acf.location_name === location ?
-                        <Block 
-                            key={post.node.slug}
-                            title={post.node.title}
-                            slug={post.node.slug}
-                            image={post.node.featured_media.localFile.childImageSharp.fluid}
-                        />
-                    : ''}
+              {posts.map(post => {
+                  return post.node.acf.location_name === location ?
+                    <div>
+                      <Block 
+                          key={post.node.slug}
+                          title={post.node.title}
+                          slug={`/${post.node.slug}`}
+                          image={post.node.featured_media.localFile.childImageSharp.fluid}
+                      />
+                    </div>
+                  : ''}
                 )}
             </StyledSlider>
         </Wrapper>

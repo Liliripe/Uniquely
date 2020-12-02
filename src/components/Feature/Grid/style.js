@@ -27,6 +27,10 @@ export const StyledRow = styled(Row)`
 export const StyledCol = styled(Col)`
     position: relative;
     margin-bottom: 30px;
+
+    @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
+        padding: 0 5px;
+    }
 `
 export const StyledBackground = styled(BackgroundImage)`
     background-size: 150%;
