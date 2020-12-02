@@ -118,4 +118,8 @@ export const StyledButton = styled(AniLink)`
     text-transform: uppercase; 
     letter-spacing: 1.8px;
     font-weight: 700;
+
+    :hover {
+        color: white;
+    }
 `

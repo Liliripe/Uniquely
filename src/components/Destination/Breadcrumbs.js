@@ -16,7 +16,7 @@ const Breadcrumbs = ({ title, categories, image }) => {
                         {categories && categories.length ? (
                             <ul>
                                 <li>Destinations / </li>
-                                {categories.slice(2, 3).map(category => (
+                                {categories.slice(0, 1).map(category => (
                                     <li key={`${category.slug}cat`}>
                                         <AniLink to={`/categories/${category.slug}/`}>
                                             {category.name}
@@ -31,7 +31,7 @@ const Breadcrumbs = ({ title, categories, image }) => {
 
             <Wrapper>
                 <StyledBreadcrumb>
-                    <AniLink fade to="/destinations">
+                    <AniLink fade to="/categories/destinations">
                         <StyledIcon icon={faAngleLeft} />
                         <span>Back to All Destinations</span>
                     </AniLink>

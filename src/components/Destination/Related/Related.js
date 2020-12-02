@@ -20,7 +20,7 @@ const Related = ({ heading, title, destinations }) => {
                     <Block
                         key={destination.node.slug}
                         title={destination.node.title}
-                        slug={destination.node.slug}
+                        slug={`/${destination.node.slug}`}
                         image={destination.node.featured_media.localFile.childImageSharp.fluid}
                     />
                     : ''}
