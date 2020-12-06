@@ -1,61 +1,52 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Row from 'react-bootstrap/Row'
+
+import Breadcrumbs from '../components/Post/Breadcrumbs'
+import Wrapper from '../components/Wrapper'
+import Images from '../components/Post/Images'
+import Content from '../components/Post/Content'
 
 export const BlogPostTemplate = ({
-  content,
-  categories,
-  tags,
+  id,
   title,
+  categories,
+  banner_image,
+  featured_image,
+  gallery_image2,
+  gallery_image3,
+  content,
   date,
-  author,
+  booking_url
 }) => {
   return (
-    <section className="section">
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
-            <div style={{ marginTop: `4rem` }}>
-              <p>
-                {date} - posted by{' '}
-                <Link to={`/author/${author.slug}`}>{author.name}</Link>
-              </p>
-              {categories && categories.length ? (
-                <div>
-                  <h4>Categories</h4>
-                  <ul className="taglist">
-                    {categories.map(category => (
-                      <li key={`${category.slug}cat`}>
-                        <Link to={`/categories/${category.slug}/`}>
-                          {category.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              {tags && tags.length ? (
-                <div>
-                  <h4>Tags</h4>
-                  <ul className="taglist">
-                    {tags.map(tag => (
-                      <li key={`${tag.slug}tag`}>
-                        <Link to={`/tags/${tag.slug}/`}>{tag.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <>
+      <Breadcrumbs
+        title={title}
+        categories={categories}
+        banner={banner_image}
+      />
+
+      <Wrapper>
+        <Row>
+          <Images 
+            featuredimg={featured_image}
+            img2={gallery_image2}
+            img3={gallery_image3}
+          />
+  
+          <Content
+            title={title}
+            content={content}
+            categories={categories}
+            date={date}
+            bookingURL={booking_url}
+          />
+        </Row>
+      </Wrapper>
+    </>
   )
 }
 
@@ -69,14 +60,18 @@ const BlogPost = ({ data }) => {
 
   return (
     <>
-      <Helmet title={`${post.title} | Blog`} />
+      <Helmet title={`${post.title} | Explore`} />
       <BlogPostTemplate
+        id={post.id}
+        title={post.title}
         content={post.content}
         categories={post.categories}
-        tags={post.tags}
-        title={post.title}
+        banner_image={post.acf.banner_image.source_url}
+        featured_image={post.featured_media.localFile.childImageSharp.fluid}
+        gallery_image2={post.acf.image_2.localFile.childImageSharp.fluid}
+        gallery_image3={post.acf.image_3.localFile.childImageSharp.fluid}
         date={post.date}
-        author={post.author}
+        booking_url={post.acf.booking_url}
       />
     </>
   )
@@ -91,13 +86,6 @@ BlogPost.propTypes = {
 export default BlogPost
 
 export const pageQuery = graphql`
-  fragment PostFields on wordpress__POST {
-    id
-    slug
-    content
-    date(formatString: "MMMM DD, YYYY")
-    title
-  }
   query BlogPostByID($id: String!) {
     wordpressPost(id: { eq: $id }) {
       id
@@ -109,13 +97,37 @@ export const pageQuery = graphql`
         name
         slug
       }
-      tags {
-        name
-        slug
+      acf {
+        booking_url
+        location_name
+        image_2 {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        image_3 {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        banner_image {source_url}
       }
-      author {
-        name
-        slug
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
