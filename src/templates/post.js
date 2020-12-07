@@ -8,6 +8,8 @@ import Breadcrumbs from '../components/Post/Breadcrumbs'
 import Wrapper from '../components/Wrapper'
 import ImageSlider from '../components/Post/Slider'
 import Content from '../components/Post/Content'
+import LocalPosts from '../components/Post/LocalPosts'
+import RelatedPosts from '../components/Post/RelatedPosts'
 
 export const BlogPostTemplate = ({
   id,
@@ -18,7 +20,10 @@ export const BlogPostTemplate = ({
   gallery_image2,
   gallery_image3,
   content,
-  booking_url
+  booking_url,
+  location,
+  posts,
+  destinations
 }) => {
   return (
     <>
@@ -45,6 +50,19 @@ export const BlogPostTemplate = ({
           />
         </Row>
       </Wrapper>
+
+      <LocalPosts 
+        heading="Local events and sales"
+        current={title}
+        location={location}
+        allPosts={posts}
+      />
+
+      <RelatedPosts
+        heading="Related destinations"
+        title={title}
+        destinations={destinations}
+      />
     </>
   )
 }
@@ -56,6 +74,8 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { wordpressPost: post } = data
+  const allPosts = data.allWordpressPost.edges
+  const allDestinations = data.allWordpressWpDestinations.edges
 
   return (
     <>
@@ -70,6 +90,9 @@ const BlogPost = ({ data }) => {
         gallery_image2={post.acf.image_2.localFile.childImageSharp.fluid}
         gallery_image3={post.acf.image_3.localFile.childImageSharp.fluid}
         booking_url={post.acf.booking_url}
+        location={post.acf.location_name}
+        posts={allPosts}
+        destinations={allDestinations}
       />
     </>
   )
@@ -122,6 +145,48 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 800) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allWordpressPost {
+      edges {
+        node {
+          title
+          slug
+          id
+          acf {
+            location_name
+          }
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    allWordpressWpDestinations {
+      edges {
+        node {
+          title
+          slug
+          id
+          acf {
+            location_name
+          }
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

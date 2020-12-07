@@ -19,7 +19,6 @@ export const DestinationTemplate = ({
   title,
   date,
   booking_url,
-  featured_image,
   gallery_image2,
   gallery_image3,
   posts,
