@@ -5,10 +5,10 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Wrapper from '../Wrapper'
 import { StyledImage, OuterWrapper, StyledBreadcrumb, StyledIcon } from './style'
 
-const Breadcrumbs = ({ title, categories, image }) => {
+const Breadcrumbs = ({ title, categories, banner }) => {
     return (
         <>
-            <StyledImage background={image}>
+            <StyledImage background={banner}>
                 <OuterWrapper>
                     <Wrapper>
                         <h2>{title}</h2>

@@ -101,7 +101,7 @@ const Carousel = ({
   />
 )
 
-function SampleNextArrow(props) {
+function NextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
@@ -116,7 +116,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function PrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
@@ -138,8 +138,8 @@ const settings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />
 };
 
 export default Carousel

@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 
 import Breadcrumbs from '../components/Post/Breadcrumbs'
 import Wrapper from '../components/Wrapper'
-import Images from '../components/Post/Images'
+import ImageSlider from '../components/Post/Slider'
 import Content from '../components/Post/Content'
 
 export const BlogPostTemplate = ({
@@ -18,7 +18,6 @@ export const BlogPostTemplate = ({
   gallery_image2,
   gallery_image3,
   content,
-  date,
   booking_url
 }) => {
   return (
@@ -31,7 +30,9 @@ export const BlogPostTemplate = ({
 
       <Wrapper>
         <Row>
-          <Images 
+          <ImageSlider 
+            key={id}
+            name={title}
             featuredimg={featured_image}
             img2={gallery_image2}
             img3={gallery_image3}
@@ -40,8 +41,6 @@ export const BlogPostTemplate = ({
           <Content
             title={title}
             content={content}
-            categories={categories}
-            date={date}
             bookingURL={booking_url}
           />
         </Row>
@@ -70,7 +69,6 @@ const BlogPost = ({ data }) => {
         featured_image={post.featured_media.localFile.childImageSharp.fluid}
         gallery_image2={post.acf.image_2.localFile.childImageSharp.fluid}
         gallery_image3={post.acf.image_3.localFile.childImageSharp.fluid}
-        date={post.date}
         booking_url={post.acf.booking_url}
       />
     </>
@@ -92,7 +90,6 @@ export const pageQuery = graphql`
       title
       slug
       content
-      date(formatString: "MMMM DD, YYYY")
       categories {
         name
         slug

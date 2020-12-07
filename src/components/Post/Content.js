@@ -1,26 +1,22 @@
 import React from 'react'
 import Col from 'react-bootstrap/Col'
 
+import {
+    StyledTitle,
+    StyledContent,
+    StyledButton
+} from './style'
+
 const Content = ({ 
     title, 
     content,
-    categories,
-    date,
     bookingURL
 }) => {
     return (
         <Col xs={12} md={6}>
-            {title}<br />
-            {content}<br />
-            {categories && categories.length ? (
-                categories.slice(2, 3).map(category => (
-                    <p key={`${category.slug}cat`} to={`/categories/${category.slug}/`}>
-                        <span>{category.name}</span>
-                    </p>
-                ))
-            ) : null}<br />
-            {date}<br />
-            {bookingURL}
+            <StyledTitle>{title}</StyledTitle>
+            <StyledContent dangerouslySetInnerHTML={{ __html: content }} />
+            <StyledButton fade to={bookingURL}>Book Now</StyledButton>
         </Col>
     )
 }

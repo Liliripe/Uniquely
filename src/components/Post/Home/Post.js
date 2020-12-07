@@ -4,12 +4,12 @@ import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
 import Row from 'react-bootstrap/Row'
 
-import Wrapper from '../Wrapper'
-import Title from '../Title'
+import Wrapper from '../../Wrapper'
+import Title from '../../Title'
 import Block from './Block'
 import { StyledContainer } from './style'
 
-const Post = ({ type, number, title, subtitle }) => {
+const HomePost = ({ type, number, title, subtitle }) => {
   const data = useStaticQuery(graphql`
     query {
       allWordpressPost {
@@ -74,4 +74,4 @@ const Post = ({ type, number, title, subtitle }) => {
   )
 }
 
-export default Post
+export default HomePost
