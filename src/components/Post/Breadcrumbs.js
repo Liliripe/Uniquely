@@ -3,12 +3,12 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Wrapper from '../Wrapper'
-import { StyledImage, OuterWrapper, StyledBreadcrumb, StyledIcon } from './style'
+import { StyledBackground, OuterWrapper, StyledBreadcrumb, StyledIcon } from './style'
 
 const Breadcrumbs = ({ title, categories, banner }) => {
     return (
         <>
-            <StyledImage background={banner}>
+            <StyledBackground background={banner}>
                 <OuterWrapper>
                     <Wrapper>
                         <h2>{title}</h2>
@@ -27,7 +27,7 @@ const Breadcrumbs = ({ title, categories, banner }) => {
                         ) : null}
                     </Wrapper>
                 </OuterWrapper>
-            </StyledImage>
+            </StyledBackground>
 
             <Wrapper>
                 <StyledBreadcrumb>

@@ -24,6 +24,13 @@ const Tag = props => {
 export default Tag
 
 export const pageQuery = graphql`
+  fragment PostListFields on wordpress__POST {
+    id
+    slug
+    content
+    date(formatString: "MMMM DD, YYYY")
+    title
+  }
   query TagPage($slug: String!) {
     site {
       siteMetadata {

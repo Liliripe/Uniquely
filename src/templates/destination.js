@@ -14,11 +14,11 @@ export const DestinationTemplate = ({
   content,
   id,
   location,
+  banner_image,
   categories,
   title,
   date,
   booking_url,
-  featured_image,
   gallery_image2,
   gallery_image3,
   posts,
@@ -29,7 +29,7 @@ export const DestinationTemplate = ({
       <Breadcrumbs
         title={title}
         categories={categories}
-        image={featured_image.localFile.childImageSharp.fluid.src}
+        banner={banner_image.localFile.childImageSharp.fluid.src}
       />
 
       <Wrapper>
@@ -82,10 +82,10 @@ const DestinationPost = ({ data }) => {
         title={destination.title}
         id={destination.id}
         location={destination.acf.location_name}
+        banner_image={destination.acf.banner_image}
         categories={destination.categories}
         date={destination.date}
         booking_url={destination.acf.booking_url}
-        featured_image={destination.featured_media}
         gallery_image2={destination.acf.image_2.source_url}
         gallery_image3={destination.acf.image_3.source_url}
         content={destination.content}
@@ -119,6 +119,15 @@ export const pageQuery = graphql`
       acf {
         booking_url
         location_name
+        banner_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
         image_2 {source_url}
         image_3 {source_url}
       }
