@@ -7,7 +7,7 @@ export const Styledcol = styled(Col)`
     margin-bottom: 30px;
 `
 export const StyledImage = styled(BackgroundImage)`
-    height: 600px;
+    height: 500px;
 
     @media screen and (max-width: ${props => props.theme.responsive.tablet}) {
         height: 180px;

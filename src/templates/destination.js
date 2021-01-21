@@ -51,7 +51,7 @@ export const DestinationTemplate = ({
       </Wrapper>
 
       <LocalPosts 
-        heading="Local events and sales"
+        heading="More Unique Experiences"
         location={location}
         posts={posts}
       />

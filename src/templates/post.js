@@ -52,7 +52,7 @@ export const BlogPostTemplate = ({
       </Wrapper>
 
       <LocalPosts 
-        heading="Local events and sales"
+        heading="More Unique Experiences"
         current={title}
         location={location}
         allPosts={posts}

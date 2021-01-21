@@ -40,7 +40,7 @@ const Content = ({
                         <span>{date}</span>
                     </li>
                 </ul>
-                <StyledButton fade to={bookingURL}>Book Now</StyledButton>
+                {/* <StyledButton fade to={bookingURL}>Book Now</StyledButton> */}
             </StyledCol>
         </StyledRow>
     )
