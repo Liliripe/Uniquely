@@ -12,6 +12,11 @@ export const StyledCol = styled(Col)`
         justify-content: center;
         min-height: 400px;
         padding: 50px;
+
+        div {
+            padding: 0;
+            min-height: auto;
+        }
     }
 `
 export const SmallText = styled.p`

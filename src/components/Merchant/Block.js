@@ -15,7 +15,7 @@ const Block = ({ key, title, slug, price, description }) => {
                         <span>/ mo</span>
                     </StyledPrice>
                     <SmallText>Includes</SmallText>
-                    <p dangerouslySetInnerHTML={{ __html: description }} />
+                    <div dangerouslySetInnerHTML={{ __html: description }} />
                 </div>
             </AniLink>
         </StyledCol>

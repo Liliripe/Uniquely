@@ -27,7 +27,7 @@ const Package = ({ products }) => {
                         <Block 
                             key={product.node.slug}
                             title={product.node.name}
-                            slug={`/${product.node.slug}`}
+                            slug={`https://madebyrossi.com/client/wordpress/product/${product.node.slug}`}
                             price={product.node.price}
                             description={product.node.description}
                         />

@@ -219,7 +219,8 @@ module.exports = {
           "**/wccom-site/v1/installer",
           "**/wc-analytics/admin/notes/update",
           "**/wc-admin/onboarding/tasks/status",
-          "**/acf/v3/options/options"
+          "**/acf/v3/options/options",
+          "**/wp-json/jetpack/v4/products"
         ],
       },
     },
