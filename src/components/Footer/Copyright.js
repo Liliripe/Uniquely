@@ -14,7 +14,7 @@ const Copyright = () => {
         <Container fluid>
           <StyledRow>
             <Col>
-              <span>Uniquely &copy; 2020</span>
+              <span>Uniquely &copy; 2021</span>
             </Col>
             <SocialCol>
                 <a href="#" target="blank">

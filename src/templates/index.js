@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import Carousel from '../components/Carousel'
 import Title from '../components/Title'
 import Feature from '../components/Feature'
-import HomePost from '../components/Post/Home'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -20,12 +19,6 @@ export default class IndexPage extends React.Component {
         />
         <Feature grid />
         <Feature subtitle="Featured Destination" />
-        {/* <Post 
-          type="list" 
-          number="3" 
-          title="Popular Destinations"
-          subtitle="Browse the Best-Reviewed"
-        /> */}
       </>
     )
   }

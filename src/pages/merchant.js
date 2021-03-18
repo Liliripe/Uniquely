@@ -11,11 +11,6 @@ export const MerchantPage = ({ products }) => {
   )
 }
 
-MerchantPage.propTypes = {
-  content: PropTypes.node.isRequired,
-  title: PropTypes.string,
-}
-
 const MerchantProduct = ({ data }) => {
   const allProducts = data.allWcProducts.edges
 
