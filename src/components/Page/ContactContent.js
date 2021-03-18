@@ -9,10 +9,10 @@ import { StyledRow, StyledCol, Title, Content, StyledIcon, StyledForm } from './
 class ContactContent extends Component {
   static defaultProps = {
     center: {
-      lat: 32.2938259,
-      lng: -64.7882163
+      lat: 32.2939081,
+      lng: -64.7850614
     },
-    zoom: 16
+    zoom: 17
   }
  
   render() {
