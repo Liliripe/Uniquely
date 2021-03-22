@@ -14,7 +14,6 @@ const FooterGrid = ({ ...data }) => {
           <StyledCol xs={12} md={3}>
             <Logo width="170px" padding="0 0 20px" />
             <p><AniLink to="mailto:info@uniquely.io">info@uniquely.io</AniLink></p>
-            <p><AniLink to="tel:5555555555">(555) 555-5555</AniLink></p>
           </StyledCol>
 
           <StyledCol>
