@@ -7,7 +7,7 @@ import { StyledSearch } from './style'
 const Search = () => {
     return (
         <StyledSearch>
-            <a href="/search">
+            <a href="https://madebyrossi.com/client/wordpress/?s=Enter%20your%20search%20here">
                 <FontAwesomeIcon icon={faSearch} />
                 <span>Search</span>
             </a>

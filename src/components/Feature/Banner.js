@@ -81,6 +81,7 @@ const Banner = ({ subtitle }) => {
                   />
                   <Button
                     slug={popular.node.slug}
+                    slug={`/${popular.node.slug}`}
                     title="View Destination" 
                     type="solid"
                   />

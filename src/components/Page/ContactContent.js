@@ -4,9 +4,9 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Wrapper from '../Wrapper'
-import { StyledRow, StyledCol, Title, Content, StyledIcon, StyledForm } from './style'
+import { StyledRow, StyledCol, Title, Content, StyledIcon, MapIcon, StyledForm } from './style'
 
-const PinComponent = () => <div style={{width: '10px', height: '10px', background: 'black'}}>pin</div>
+const PinComponent = () => <MapIcon icon={faMapMarkerAlt} />
  
 class ContactContent extends Component {
   static defaultProps = {
