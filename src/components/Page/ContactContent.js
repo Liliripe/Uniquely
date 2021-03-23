@@ -5,6 +5,8 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Wrapper from '../Wrapper'
 import { StyledRow, StyledCol, Title, Content, StyledIcon, StyledForm } from './style'
+
+const PinComponent = () => <div style={{width: '10px', height: '10px', background: 'black'}}>pin</div>
  
 class ContactContent extends Component {
   static defaultProps = {
@@ -40,7 +42,12 @@ class ContactContent extends Component {
                         bootstrapURLKeys={{ key: 'AIzaSyCVLd9GjC6D-875ow7-6bw0cHjojbaq_oU' }}
                         defaultCenter={this.props.center}
                         defaultZoom={this.props.zoom}
-                    />
+                    >
+                        <PinComponent
+                            lat={32.2939081}
+                            lng={-64.7850614}
+                        />
+                    </GoogleMapReact>
                 </StyledCol>
             </StyledRow>
 
