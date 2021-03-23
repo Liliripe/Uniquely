@@ -49,7 +49,7 @@ const NoContent = ({ xs, md }) => {
                     <StyledSubtitle>Uniquely</StyledSubtitle>
                     <StyledLink 
                         fade 
-                        to="/about-us"
+                        to="/about"
                         alt="About Us"
                     >
                         <StyledSmallTitle>About Us</StyledSmallTitle>
@@ -70,7 +70,7 @@ const NoContent = ({ xs, md }) => {
                 >
                     <StyledLink 
                         fade 
-                        to="about-us"
+                        to="about"
                         alt="About Us"
                     >
                         <StyledBackground
@@ -94,7 +94,7 @@ const NoContent = ({ xs, md }) => {
                 >
                     <StyledLink 
                         fade 
-                        to="/contact-us"
+                        to="/contact"
                         alt="Contact Us"
                     >
                         <StyledBackground
@@ -110,7 +110,7 @@ const NoContent = ({ xs, md }) => {
                     <StyledSubtitle>Questions?</StyledSubtitle>
                     <StyledLink 
                         fade 
-                        to="/contact-us"
+                        to="/contact"
                         alt="Contact Us"
                     >
                         <StyledSmallTitle>Contact Us</StyledSmallTitle>

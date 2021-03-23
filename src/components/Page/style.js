@@ -89,6 +89,11 @@ export const StyledIcon = styled(FontAwesomeIcon)`
     opacity: 0.8;
     margin-right: 14px;
 `
+export const MapIcon = styled(FontAwesomeIcon)`
+    font-size: 34px;
+    color: red;
+    opacity: 0.9;
+`
 export const StyledForm = styled.form`
     width: 100%;
 
