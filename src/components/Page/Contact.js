@@ -10,7 +10,8 @@ const Contact = ({ info }) => {
                 <>
                     <Breadcrumbs 
                         name={infos.node.title}
-                        banner={infos.node.featured_media.localFile.childImageSharp.fluid.src}
+                        //banner={infos.node.featured_media.localFile.childImageSharp.fluid.src}
+                        banner="https://madebyrossi.com/client/wordpress/wp-content/uploads/2020/11/featured.jpg"
                     />
 
                     <ContactContent

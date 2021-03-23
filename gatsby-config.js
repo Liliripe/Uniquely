@@ -220,7 +220,7 @@ module.exports = {
           "**/wc-analytics/admin/notes/update",
           "**/wc-admin/onboarding/tasks/status",
           "**/acf/v3/options/options",
-          "**/wp-json/jetpack/v4/products"
+          "**/jetpack/v4/products"
         ],
       },
     },
