@@ -6,12 +6,12 @@ import Wrapper from '../Wrapper'
 import Title from '../Title'
 import Block from './Block'
 
-const Package = ({ products }) => {
+const Package = ({ banner, products }) => {
     return (
         <>
             <Breadcrumbs
                 title="Merchant Signup"
-                banner="https://madebyrossi.com/client/wordpress/wp-content/uploads/2020/11/santorini.jpg"
+                banner={banner}
             />
 
             <Wrapper>

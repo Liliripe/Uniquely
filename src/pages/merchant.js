@@ -5,19 +5,26 @@ import { graphql } from 'gatsby'
 
 import Package from '../components/Merchant/Package'
 
-export const MerchantPage = ({ products }) => {
+export const MerchantPage = ({ banner, products }) => {
   return (
-    <Package products={products} />
+    <Package 
+      banner={banner}
+      products={products} 
+    />
   )
 }
 
 const MerchantProduct = ({ data }) => {
   const allProducts = data.allWcProducts.edges
+  const merchantBanner = data.wordpressPage.acf.banner_image.localFile.childImageSharp.fluid.src
 
   return (
     <>
       <Helmet title={`Uniquely | Merchant Sign-Up`} />
-      <MerchantPage products={allProducts} />
+      <MerchantPage 
+        banner={merchantBanner}
+        products={allProducts}
+      />
     </>
   )
 }
@@ -32,6 +39,19 @@ export default MerchantProduct
 
 export const merchantQuery = graphql`
   query {
+    wordpressPage(title: { eq: "Merchant" }) {
+      acf {
+        banner_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
     allWcProducts(filter: {
       categories: {
         elemMatch: {
