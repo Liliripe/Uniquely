@@ -31,23 +31,34 @@ AboutContent.propTypes = {
 export default AboutContent
 
 export const aboutQuery = graphql`
-  query {
-    allWordpressPage(filter: {slug: {eq: "about"}}) {
-        edges {
-            node {
-                title
-                content
-                featured_media {
-                    localFile {
-                        childImageSharp {
-                            fluid(maxWidth: 1500) {
-                                src
-                            }
-                        }
-                    }
-                }
+query {
+  allWordpressPage(filter: {slug: {eq: "about"}}) {
+    edges {
+      node {
+        title
+        content
+        featured_media {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 980) {
+                ...GatsbyImageSharpFluid
+              }
             }
+          }
         }
+        acf {
+          banner_image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
+}
 `

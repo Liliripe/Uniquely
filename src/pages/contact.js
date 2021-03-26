@@ -33,21 +33,32 @@ export default ContactContent
 export const contactQuery = graphql`
   query {
     allWordpressPage(filter: {slug: {eq: "contact"}}) {
-        edges {
-            node {
-                title
-                content
-                featured_media {
-                    localFile {
-                        childImageSharp {
-                            fluid(maxWidth: 1500) {
-                                src
-                            }
-                        }
-                    }
+      edges {
+        node {
+          title
+          content
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 980) {
+                  ...GatsbyImageSharpFluid
                 }
+              }
             }
+          }
+          acf {
+            banner_image {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1920) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
         }
+      }
     }
   }
 `

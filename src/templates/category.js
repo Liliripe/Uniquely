@@ -23,7 +23,7 @@ const Category = ({ data, pageContext }) => {
         image={thisCat.acf.featured_image.localFile.childImageSharp.fluid.src}
       />
   
-      <Navigation category={category}>
+      {/* <Navigation category={category}>
         {allCat.map(cat => {
           return cat.node.name == 'Carousel' ? '' : 
           cat.node.name == 'Featured' ? '' :
@@ -38,7 +38,7 @@ const Category = ({ data, pageContext }) => {
             />
           }
         )}
-      </Navigation>
+      </Navigation> */}
 
       <CategoryList>
         {allCat.map(cat => {
@@ -76,7 +76,7 @@ export const pageQuery = graphql`
           localFile {
             childImageSharp {
               fluid(maxWidth: 1920) {
-                src
+                ...GatsbyImageSharpFluid
               }
             }
           }

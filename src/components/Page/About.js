@@ -10,13 +10,13 @@ const About = ({ details }) => {
                 <>
                     <Breadcrumbs 
                         name={detail.node.title}
-                        banner={detail.node.featured_media.localFile.childImageSharp.fluid.src}
+                        banner={detail.node.acf.banner_image.localFile.childImageSharp.fluid.src}
                     />
 
                     <AboutContent
                         title="Welcome to Uniquely"
                         subtitle="Lorem ipsum dolor"
-                        image="https://madebyrossi.com/client/wordpress/wp-content/uploads/2021/03/about.jpg"
+                        image={detail.node.featured_media.localFile.childImageSharp.fluid.src}
                         buttonText="Contact Us"
                         buttonLink="/contact"
                     >

@@ -85,10 +85,11 @@ const BlogPost = ({ data }) => {
         title={post.title}
         content={post.content}
         categories={post.categories}
-        banner_image={post.acf.banner_image.source_url}
+        banner_image={post.acf.post_banner_image.localFile.childImageSharp.fluid}
         featured_image={post.featured_media.localFile.childImageSharp.fluid}
-        gallery_image2={post.acf.image_2.localFile.childImageSharp.fluid}
-        gallery_image3={post.acf.image_3.localFile.childImageSharp.fluid}
+        gallery_image1={post.acf.post_image_1.localFile.childImageSharp.fluid}
+        gallery_image2={post.acf.post_image_2.localFile.childImageSharp.fluid}
+        gallery_image3={post.acf.post_image_3.localFile.childImageSharp.fluid}
         booking_url={post.acf.booking_url}
         location={post.acf.location_name}
         posts={allPosts}
@@ -120,7 +121,7 @@ export const pageQuery = graphql`
       acf {
         booking_url
         location_name
-        image_2 {
+        post_image_1 {
           localFile {
             childImageSharp {
               fluid(maxWidth: 800) {
@@ -129,7 +130,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        image_3 {
+        post_image_2 {
           localFile {
             childImageSharp {
               fluid(maxWidth: 800) {
@@ -138,7 +139,24 @@ export const pageQuery = graphql`
             }
           }
         }
-        banner_image {source_url}
+        post_image_3 {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        post_banner_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
       featured_media {
         localFile {

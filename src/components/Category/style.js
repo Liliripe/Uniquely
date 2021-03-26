@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StyledImage = styled.div`
     width: 100%;
     height: 170px;
-    margin: 0 0 15px;
+    margin: 0 0 60px;
     background-size: cover;
     background-position: center;
     background-image: url(${props => props.background});

@@ -18,9 +18,9 @@ const Breadcrumbs = ({ title, categories, banner }) => {
                                 <li>Destinations / </li>
                                 {categories.slice(0, 1).map(category => (
                                     <li key={`${category.slug}cat`}>
-                                        <AniLink to={`/categories/${category.slug}/`}>
+                                        {/* <AniLink to={`/categories/${category.slug}/`}> */}
                                             {category.name}
-                                        </AniLink>
+                                        {/* </AniLink> */}
                                     </li>
                                 ))}
                             </ul>

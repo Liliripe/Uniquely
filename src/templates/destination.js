@@ -19,6 +19,7 @@ export const DestinationTemplate = ({
   title,
   date,
   booking_url,
+  gallery_image1,
   gallery_image2,
   gallery_image3,
   posts,
@@ -29,7 +30,7 @@ export const DestinationTemplate = ({
       <Breadcrumbs
         title={title}
         categories={categories}
-        banner={banner_image.localFile.childImageSharp.fluid.src}
+        banner={banner_image}
       />
 
       <Wrapper>
@@ -37,6 +38,7 @@ export const DestinationTemplate = ({
           type="destination" 
           limit="5" 
           id={id}
+          img1={gallery_image1}
           img2={gallery_image2}
           img3={gallery_image3}
         />
@@ -82,12 +84,13 @@ const DestinationPost = ({ data }) => {
         title={destination.title}
         id={destination.id}
         location={destination.acf.location_name}
-        banner_image={destination.acf.banner_image}
+        banner_image={destination.acf.dest_banner_image.localFile.childImageSharp.fluid.src}
         categories={destination.categories}
         date={destination.date}
         booking_url={destination.acf.booking_url}
-        gallery_image2={destination.acf.image_2.source_url}
-        gallery_image3={destination.acf.image_3.source_url}
+        gallery_image1={destination.acf.dest_image_1.localFile.childImageSharp.fluid.src}
+        gallery_image2={destination.acf.dest_image_2.localFile.childImageSharp.fluid.src}
+        gallery_image3={destination.acf.dest_image_3.localFile.childImageSharp.fluid.src}
         content={destination.content}
         posts={allPosts}
         destinations={allDestinations}
@@ -119,7 +122,7 @@ export const pageQuery = graphql`
       acf {
         booking_url
         location_name
-        banner_image {
+        dest_banner_image {
           localFile {
             childImageSharp {
               fluid(maxWidth: 1920) {
@@ -128,14 +131,39 @@ export const pageQuery = graphql`
             }
           }
         }
-        image_2 {source_url}
-        image_3 {source_url}
+        dest_image_1 {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        dest_image_2 {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        dest_image_3 {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
       featured_media {
         localFile {
           childImageSharp {
             fluid(maxWidth: 1920) {
-              src
+              ...GatsbyImageSharpFluid
             }
           }
         }
