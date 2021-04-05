@@ -253,5 +253,13 @@ module.exports = {
         display: 'swap'
       }
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-JLZTS7V92F"
+        ],
+      },
+    },
   ],
 }
