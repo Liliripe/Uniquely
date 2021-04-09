@@ -110,6 +110,24 @@ export const StyledTitle = styled.h2`
 `
 export const StyledContent = styled.div`
     font-size: 15px;
+
+    p {
+        margin-bottom: 25px;
+    }
+
+    .wp-block-button__link {
+        width: 100%;
+        max-width: 250px;
+        display: block;
+        background-color: black;
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        font-size: 11px;
+        text-transform: uppercase; 
+        letter-spacing: 1.8px;
+        font-weight: 700;
+    }
 `
 export const StyledButton = styled(AniLink)`
     width: 100%;
