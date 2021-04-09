@@ -16,7 +16,7 @@ const Listing = ({ banner, products }) => {
             <Wrapper>
                 <Row>
                     {products.map(product => {
-                        return product.node.categories[0].name == 'Merchant' ? 
+                        return product.node.categories[0].name !== 'Merchant' ? 
                             <Block 
                                 key={product.node.slug}
                                 title={product.node.name}
